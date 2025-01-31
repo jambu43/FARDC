@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export const antiqueOlive = localFont({
+  src: [
+    {
+      path: "../fonts/AntiqueOliveRegular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/AntiqueOliveBold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-antique-olive",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "PAMOJA CONGO",
@@ -25,8 +34,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${antiqueOlive.variable} antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>

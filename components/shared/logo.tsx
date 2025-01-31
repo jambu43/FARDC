@@ -1,8 +1,10 @@
-import React from 'react'
+import Image from "next/image"
 
 function Logo() {
     return (
-        <div>Logo</div>
+        <div>
+            <Image src="/logo.jpeg" alt="logo" width={200} height={150} />
+        </div>
     )
 }
 
