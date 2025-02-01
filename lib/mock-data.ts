@@ -26,7 +26,7 @@ export function generateMockCampaigns(count: number): Promise<Campaign[]> {
     setTimeout(() => {
       const campaigns = Array.from({ length: count }, (_, i) => ({
         id: i + 1,
-        image: "/illustration.svg",
+        image: `/guerre.jpg`,
         title:
           i === 0
             ? "Aide d'urgence pour les victimes du séisme"
