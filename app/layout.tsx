@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/header";
+import { Footer } from "@/components/footer";
 
 export const antiqueOlive = localFont({
   src: [
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="min-h-screen">
 
           {children}
+          <Footer/>
         </main>
       </body>
     </html>
