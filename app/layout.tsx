@@ -46,10 +46,10 @@ export default function RootLayout({
       <body
         className={` ${antiqueOlive.variable} ${antiqueOliveRegular.variable} antialiased`}
       >
-        <Header />
+
         <main className="min-h-screen">
           {children}
-          <Footer />
+
         </main>
       </body>
     </html>
