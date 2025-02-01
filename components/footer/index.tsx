@@ -17,33 +17,29 @@ export function Footer() {
 
   const footerSections: FooterSection[] = [
     {
-      title: "Fund a project",
+      title: "Trouvez un projet",
       links: [
-        { label: "How to run a successful campaign", href: "#" },
-        { label: "Our features", href: "#" },
-        { label: "Selection criteria", href: "#" },
+        { label: "Comment mener une campagne réussie", href: "#" },
+        { label: "Nos caractéristiques", href: "#" },
         { label: "Crowdfunding", href: "#" },
-        { label: "Campaign", href: "#" },
-        { label: "Pre-order", href: "#" },
-        { label: "Subscription", href: "#" },
-        { label: "Branding guidelines", href: "#" },
-        { label: "The blog", href: "#" },
+        { label: "Campagne", href: "#" },
+        { label: "Inscription", href: "#" },
+        { label: "Blog", href: "#" },
         { label: "FAQ", href: "#" },
       ],
     },
     {
-      title: "Partnerships",
+      title: "Partenariats",
       links: [
-        { label: "Become partners", href: "#" },
-        { label: "Partners deals", href: "#" },
-        { label: "Local authorities", href: "#" },
-        { label: "Mentors", href: "#" },
+        { label: "Devenir partenair", href: "#" },
+        { label: "Opérations des partenaires", href: "#" },
+        { label: "Autorités locales", href: "#" },
       ],
     },
     {
-      title: "About",
+      title: "A props",
       links: [
-        { label: "Our services", href: "#" },
+        { label: "Nos services", href: "#" },
         { label: "Our manifesto", href: "#" },
         { label: "Our values", href: "#" },
         { label: "StatKisstics", href: "#" },
@@ -54,11 +50,11 @@ export function Footer() {
       ],
     },
     {
-      title: "Our commitments",
+      title: "Nos engagements",
       links: [
-        { label: "Health and Handicap", href: "#" },
-        { label: "Indie", href: "#" },
-        { label: "Organic", href: "#" },
+        { label: "Santé et handicap", href: "#" },
+        { label: "Indépendants", href: "#" },
+        { label: "Guerre", href: "#" },
       ],
     },
   ]
@@ -77,7 +73,7 @@ export function Footer() {
             <Link href="/" className="flex items-center">
               <Logo/>
             </Link>
-            <p className="text-zinc-400">Nous vous aidons à créer vos projets</p>
+            <p className="text-zinc-400 text-sm">Nous vous aidons à créer vos projets</p>
           </div>
 
           <div className="flex gap-4">
@@ -103,7 +99,7 @@ export function Footer() {
                 onClick={() => toggleSection(section.title)}
                 className="w-full flex items-center justify-between py-4 lg:py-0 lg:mb-4 lg:cursor-default"
               >
-                <h2 className="font-semibold text-lg">{section.title}</h2>
+                <h2 className="font-semibold text-sm">{section.title}</h2>
                 <ChevronDown
                   className={`h-5 w-5 lg:hidden transition-transform ${
                     openSection === section.title ? "rotate-180" : ""
@@ -119,7 +115,7 @@ export function Footer() {
                 <ul className="space-y-2 pb-4 lg:pb-0">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors block py-1">
+                      <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors block py-1 text-sm">
                         {link.label}
                       </Link>
                     </li>
@@ -134,18 +130,17 @@ export function Footer() {
         <div className="border-t border-zinc-800 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
             <div className="text-sm text-zinc-400 space-y-2">
-              <p>
-                Pamoja is a crowdfunding platform regulated by french authorities. Registration number as a
-                Crowdfunding Intermediary with ORIAS: 17003008.
+              <p className="text-sm">
+              Pamoja est une plateforme de crowdfunding
               </p>
-              <p>
-                Head office address: 10 rue de Penthièvre 75008 Paris. Contact email address:
-                contact@Pamoja.com
+              <p className="text-sm">
+              Adresse du siège social : 10 rue de Penthièvre 75008 Paris. Adresse électronique du contact :
+              contact@Pamoja.com
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Image src="/placeholder.svg" alt="MangoPay" width={120} height={40} className="h-8 w-auto" />
-              <span className="text-sm text-zinc-400">Secure payments with MANGOPAY Payment Services</span>
+              <Image src="/placeholder.svg" alt="logo paiement" width={120} height={40} className="h-8 w-auto" />
+              <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement MANGOPAY</span>
             </div>
           </div>
         </div>
@@ -164,8 +159,8 @@ export function Footer() {
             </select> */}
 
             <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-zinc-400">
-              {["Terms of use", "Legal Notice", "Personal data", "Cookies", "Claims"].map((item) => (
-                <Link key={item} href="#" className="hover:text-white transition-colors">
+              {["Conditions d'utilisation", "Avis juridique", "Données personnelles", "Cookies", "Réclamations"].map((item) => (
+                <Link key={item} href="#" className="hover:text-white transition-colors text-sm">
                   {item}
                 </Link>
               ))}
