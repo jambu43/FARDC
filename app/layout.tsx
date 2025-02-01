@@ -37,7 +37,10 @@ export default function RootLayout({
         className={` ${antiqueOlive.variable} antialiased`}
       >
         <Header />
-        {children}
+        <main className="min-h-screen">
+
+          {children}
+        </main>
       </body>
     </html>
   );
