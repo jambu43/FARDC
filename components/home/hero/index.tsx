@@ -7,7 +7,7 @@ import { motion } from "motion/react"
 function Hero() {
     return (
         <section className="lg:min-h-[500px] container section">
-            <div className="flex flex-col-reverse lg:flex-row gap-8 lg:items-center">
+            <div className="flex flex-col-reverse lg:flex-row gap-y-8 lg:items-center">
                 <motion.div
                     className="lg:w-1/2 h-full flex flex-col justify-center"
                     initial={{ opacity: 0, y: 20 }}

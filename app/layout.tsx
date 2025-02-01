@@ -48,7 +48,6 @@ export default function RootLayout({
       >
         <Header />
         <main className="min-h-screen">
-
           {children}
           <Footer />
         </main>

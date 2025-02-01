@@ -26,5 +26,5 @@ h6 {
 }
 
 .section {
-  @apply py-16 px-10 md:py-24;
+  @apply py-16 px-5 md:py-24;
 }
