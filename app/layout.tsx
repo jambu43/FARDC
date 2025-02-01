@@ -5,11 +5,11 @@ import Header from "@/components/header";
 
 export const antiqueOlive = localFont({
   src: [
-    {
-      path: "../fonts/AntiqueOliveRegular.ttf",
-      weight: "400",
-      style: "normal",
-    },
+    // {
+    //   path: "../fonts/AntiqueOliveRegular.ttf",
+    //   weight: "400",
+    //   style: "normal",
+    // },
     {
       path: "../fonts/AntiqueOliveBold.ttf",
       weight: "700",
