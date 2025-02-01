@@ -6,11 +6,7 @@ import { Footer } from "@/components/footer";
 
 export const antiqueOlive = localFont({
   src: [
-    // {
-    //   path: "../fonts/AntiqueOliveRegular.ttf",
-    //   weight: "400",
-    //   style: "normal",
-    // },
+
     {
       path: "../fonts/AntiqueOliveBold.ttf",
       weight: "700",
@@ -18,6 +14,19 @@ export const antiqueOlive = localFont({
     },
   ],
   variable: "--font-antique-olive",
+})
+
+export const antiqueOliveRegular = localFont({
+  src: [
+
+    {
+      path: "../fonts/AntiqueOliveRegular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-antique-olive-regular",
+
 })
 
 
@@ -35,13 +44,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={` ${antiqueOlive.variable} antialiased`}
+        className={` ${antiqueOlive.variable} ${antiqueOliveRegular.variable} antialiased`}
       >
         <Header />
         <main className="min-h-screen">
 
           {children}
-          <Footer/>
+          <Footer />
         </main>
       </body>
     </html>
