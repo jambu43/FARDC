@@ -9,6 +9,7 @@ import { FeaturedCampaignCard } from "./featured-campaign-card"
 import type { Campaign } from "@/types/campaign"
 import { generateMockCampaigns } from "@/lib/mock-data"
 import useEmblaCarousel from "embla-carousel-react"
+import Link from "next/link"
 
 const categories = [
     { id: "a-la-une", label: "À la Une" },
@@ -157,7 +158,12 @@ export default function CampagnesSection() {
             </div>
 
             <div className="flex justify-center mt-8">
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">TOUTES LES COLLECTES</Button>
+                <Link href={"/campagnes"}>
+                    <Button className="bg-primary hover:bg-primary/80 text-white">
+                        Voir toutes les campagnes
+                    </Button>
+                </Link>
+
             </div>
         </section>
     )
