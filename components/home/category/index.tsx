@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
+
 interface Category {
   id: string
   name: string
@@ -73,7 +74,8 @@ export function Category() {
         <h2 className="text-2xl font-bold mb-6">Parcourir par catégorie</h2>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
-            <button
+            <Link
+              href={`/category/${category.id}`}
               key={category.id}
               onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
               className={`
@@ -85,7 +87,7 @@ export function Category() {
             >
               <span className="w-2 h-2 rounded-full bg-gray-400" />
               <span className="text-sm">{category.name}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </div>
