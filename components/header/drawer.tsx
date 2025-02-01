@@ -18,7 +18,7 @@ function Drawer() {
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="shrink-0">
+                <Button variant="ghost" className="p-0" >
                     <Menu className="h-16 w-16" />
                     <span className="sr-only">Menu</span>
                 </Button>

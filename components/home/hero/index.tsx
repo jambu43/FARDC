@@ -45,7 +45,7 @@ function Hero() {
                     </motion.div>
                 </motion.div>
                 <motion.div
-                    className="lg:w-1/2 mb-8 lg:mb-0"
+                    className="lg:w-1/2 mb-4 lg:mb-0"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
