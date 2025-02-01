@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Facebook, Linkedin, Twitter, Instagram, Youtube, ChevronDown } from "lucide-react"
 import Logo from "../shared/logo"
 
@@ -126,18 +125,16 @@ export function Footer() {
 
         {/* Bottom section */}
         <div className="border-t border-zinc-800 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-            <div className="text-sm text-zinc-400 space-y-2">
+          <div className="flex flex-col lg:flex-row justify-between items-stretch gap-6">
+            <div className="flex-1 text-sm text-zinc-400 bg-zinc-800 space-y-2 p-5 rounded-md">
               <p className="text-sm">
-              Pamoja est une plateforme de crowdfunding
+                Pamoja est une plateforme de crowdfunding
               </p>
               <p className="text-sm">
-              Adresse du siège social : 10 rue de Penthièvre 75008 Paris. Adresse électronique du contact :
-              contact@Pamoja.com
+                Adresse : 10 rue de Penthièvre 75008 Paris. Email : contact@Pamoja.com
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Image src="/placeholder.svg" alt="logo paiement" width={120} height={40} className="h-8 w-auto" />
+            <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-zinc-800 space-y-2 p-5 rounded-md">
               <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement MANGOPAY</span>
             </div>
           </div>
