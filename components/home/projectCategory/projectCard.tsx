@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Progress } from "@/components/ui/progress"
 // import { Badge } from "@/components/ui/badge"
 
 interface ProjectStats {
@@ -60,9 +61,7 @@ export function ProjectCard({
             </div>
           </div>
 
-          <div className="relative h-1 bg-red-400 rounded-full overflow-hidden">
-            <div className="relative left-0 top-0 h-full bg-emerald-600 rounded-full" />
-          </div>
+          <Progress value={stats.percentage} className="h-1 mb-2" />
         </div>
       </div>
     </div>

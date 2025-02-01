@@ -13,7 +13,7 @@ const projects = [
       endDate: "02/25/22",
       raised: 16277,
       goal: 15000,
-      percentage: 109,
+      percentage: 90,
     },
   },
   {
@@ -25,7 +25,7 @@ const projects = [
       endDate: "10/14/22",
       raised: 83881,
       goal: 8000,
-      percentage: 1049,
+      percentage: 49,
     },
   },
   {
@@ -37,7 +37,7 @@ const projects = [
       endDate: "03/22/21",
       raised: 903031,
       goal: 100000,
-      percentage: 903,
+      percentage: 3,
     },
   },
 ]
