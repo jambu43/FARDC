@@ -43,10 +43,10 @@ export default function Header() {
                             </li>
                             <li>
                                 <Link
-                                    href="/a-propos"
+                                    href="/contact"
                                     className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
                                 >
-                                    A propos
+                                    Contact
                                 </Link>
                             </li>
                         </ul>
@@ -68,7 +68,11 @@ export default function Header() {
                             Se connecter
                         </Link>
                     </Button>
-                    <Button className="bg-primary">Créer une campagne</Button>
+                    <Button className="bg-primary">
+                        <Link href={"/campagnes/create"}>
+                            Créer une campagne
+                        </Link>
+                    </Button>
                 </div>
             </div>
 
