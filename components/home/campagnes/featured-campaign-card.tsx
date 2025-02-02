@@ -3,6 +3,8 @@ import { Progress } from "@/components/ui/progress"
 import type { Campaign } from "@/types/campaign"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 interface FeaturedCampaignCardProps {
     campaign: Campaign | null
@@ -24,7 +26,7 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
                 </button>
             </div>
 
-            <div className="p-6 h-1/2">
+            <div className="p-6 h-full">
                 <h3 className="font-bold mb-6 text-md text-primary">{campaign.title}</h3>
                 <p className="text-gray-600 text-normal mb-6 text-sm line-clamp-2">{campaign.description}</p>
 
@@ -38,12 +40,20 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
 
                 <Progress value={campaign.progress} className={"h-1 mb-3"} />
 
-                <div className="flex justify-between items-center mt-4">
+                <div className="flex justify-between items-center mt-4 gap-2">
                     <div className="flex items-center gap-2">
                         <span className={cn("font-bold", campaign.progress >= 100 ? "text-green-500" : "text-secondary")}>{campaign.progress}%</span>
                         <span className="text-gray-500 text-sm">financé</span>
+                    </div><div>
+                        <Link href={`/campagnes/donations/${campaign.id}`}>
+                            <Button size="sm" className="bg-secondary text-white text-sm flex items-center gap-2">
+
+                                <Heart className="w-4 h-4" />
+                                <span>Contribuer</span>
+                            </Button>
+                        </Link>
                     </div>
-                    {campaign.location && <span className="text-gray-500">{campaign.location}</span>}
+
                 </div>
             </div>
         </div>
