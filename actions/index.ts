@@ -3,6 +3,7 @@ import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { registerUser as register } from "@/lib/auth";
 import { update, remove } from "./strapi/services/client";
+import { redirect } from "next/navigation";
 
 export async function authenticate(
   prevState: string | undefined,
@@ -42,13 +43,9 @@ export const registerUser = async (
     if (user) {
       id = user.documentId;
     }
-    await signIn("credentials", {
-      username: username as string,
-      password: password as string,
-    });
-    console.log(id);
   } catch (error) {
     console.log(error);
     return "Une erreur est survenue.";
   }
+  redirect("/login");
 };
