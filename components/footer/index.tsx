@@ -135,7 +135,7 @@ export function Footer() {
               </p>
             </div>
             <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-zinc-800 space-y-2 p-5 rounded-md">
-              <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement MANGOPAY</span>
+              <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement ...</span>
             </div>
           </div>
         </div>
