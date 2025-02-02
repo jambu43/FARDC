@@ -1,7 +1,7 @@
 "use server";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
-import { registerUser as register } from "@/lib/auth";
+import { registerUser as register, forgotPassword as forgot } from "@/lib/auth";
 import { update, remove } from "./strapi/services/client";
 import { redirect } from "next/navigation";
 
@@ -48,4 +48,30 @@ export const registerUser = async (
     return "Une erreur est survenue.";
   }
   redirect("/login");
+};
+
+export const forgotPasswordUser = async (
+  prevState: any | undefined,
+  formData: FormData
+) => {
+  const data = Object.fromEntries(formData);
+  const { email } = data;
+  if (!email) {
+    return {
+      error: "Veuillez remplir tous les champs.",
+    };
+  }
+  try {
+    await forgot(email as string);
+
+    return {
+      message:
+        "Veuillez consulter votre boite mail pour changer votre mot de passe.",
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      error: "Une erreur est survenue.",
+    };
+  }
 };
