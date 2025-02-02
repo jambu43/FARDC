@@ -15,7 +15,7 @@ function MarketingLayout({ children }: MarketingLayoutProps) {
                 {children}
 
             </main>
-            Footer/
+            <Footer />
         </>
     )
 

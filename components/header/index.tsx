@@ -1,15 +1,19 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import Drawer from "./drawer"
 import Link from "next/link"
 import { Search, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Logo from "../shared/logo"
+import { cn } from "@/lib/utils"
+
 
 export default function Header() {
     const [isSearchActive, setIsSearchActive] = useState(false)
+    const pathname = usePathname()
 
     return (
         <header className="border-b">
@@ -19,12 +23,35 @@ export default function Header() {
                     <Link href="/" className="flex-shrink-0">
                         <Logo />
                     </Link>
-                    <Link
-                        href="/campagnes"
-                        className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                        Découvrir nos campagnes
-                    </Link>
+                    <nav>
+                        <ul className="flex items-center gap-8">
+                            <li>
+                                <Link
+                                    href="/"
+                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    Accueil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/campagnes"
+                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    Campagnes
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/a-propos"
+                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    A propos
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+
                 </div>
 
                 <div className="flex items-center gap-4 flex-1 max-w-xl mx-8 ">
