@@ -58,12 +58,6 @@ export function Newsletter() {
             <p className="text-xs text-zinc-500 text-center  ">
               Nous utiliserons votre email uniquement pour vous envoyer notre
               newsletter.
-              <Button
-                variant="link"
-                className="text-primary hover:text-primary p-0 h-auto font-normal"
-              >
-                En savoir plus
-              </Button>
             </p>
           </form>
         </div>

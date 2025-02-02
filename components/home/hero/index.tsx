@@ -40,7 +40,7 @@ function Hero() {
                             <Button className="bg-primary">Découvrir nos campagnes</Button>
                         </Link>
                         <Link href="/campagnes/create">
-                            <Button className="bg-secondary">Lancer une campagne</Button>
+                            <Button className="bg-secondary">Lancer une collecte</Button>
                         </Link>
                     </motion.div>
                 </motion.div>

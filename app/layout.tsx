@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/header";
-import { Footer } from "@/components/footer";
 
-export const antiqueOlive = localFont({
+const antiqueOlive = localFont({
   src: [
 
     {
@@ -16,7 +14,7 @@ export const antiqueOlive = localFont({
   variable: "--font-antique-olive",
 })
 
-export const antiqueOliveRegular = localFont({
+const antiqueOliveRegular = localFont({
   src: [
 
     {
@@ -46,10 +44,10 @@ export default function RootLayout({
       <body
         className={` ${antiqueOlive.variable} ${antiqueOliveRegular.variable} antialiased`}
       >
-        <Header />
+
         <main className="min-h-screen">
           {children}
-          <Footer />
+
         </main>
       </body>
     </html>

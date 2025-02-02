@@ -1,8 +1,9 @@
-import { Heart } from "lucide-react"
+import { Heart, Link } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
 import Image from "next/image"
 import type { Campaign } from "@/types/campaign"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 interface CampaignCardProps {
     campaign: Campaign | null
@@ -58,7 +59,14 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
                         <span className={cn("font-bold", campaign.progress >= 100 ? "text-green-500" : "text-secondary")}>{campaign.progress}%</span>
                         <span className="text-gray-500 text-sm">financé</span>
                     </div>
-                    {campaign.location && <span className="text-gray-500">{campaign.location}</span>}
+                    <div>
+                        <Link href={`/campagnes/donations/${campaign.id}`}>
+                            <Button size="sm" className="bg-secondary text-white text-sm flex items-center gap-2">
+                                <Heart className="w-4 h-4" />
+                                <span>Contribuer</span>
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
