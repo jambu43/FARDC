@@ -47,7 +47,7 @@ export default function CampagnesSection({ campaigns }: Props) {
 
     const filteredCampaigns = useMemo(() => {
         if (activeCategory === "a-la-une") return campaigns
-        return campaigns.filter((campaign: any) => campaign.categories.map((category: string) => category)[0].toLowerCase().includes(activeCategory.replace("-", " ")))
+        return campaigns.filter((campaign: any) => campaign.categories.some((category: string) => categories.find((cat) => cat.id === activeCategory)?.id.toLowerCase().includes(category.toLowerCase())))
     }, [campaigns, activeCategory])
 
     const scrollPrev = () => emblaApi?.scrollPrev()

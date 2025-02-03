@@ -14,7 +14,9 @@ function ForgotPasswordForm() {
     return (
         <form action={dispatch} className={'flex flex-col justify-center items-center min-h-screen'}>
             <div className={'logo mb-4'}>
-                <Logo />
+                <Link href={'/'}>
+                    <Logo />
+                </Link>
             </div>
             <h1 className="text-2xl font-bold text-primary text-center mb-4">
                 Mot de passe oublié

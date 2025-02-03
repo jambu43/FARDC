@@ -23,7 +23,9 @@ export default function LoginForm() {
             <div className="flex-1 flex flex-col justify-center items-center  rounded-lg bg-gray-50 min-h-screen px-8 lg:px-24 pb-4 pt-8">
                 <div>
                     <div className={'mb-4 flex justify-center'}>
-                        <Logo />
+                        <Link href={'/'}>
+                            <Logo />
+                        </Link>
                     </div>
                     <h1 className="text-2xl font-bold text-primary text-center">
                         Connexion

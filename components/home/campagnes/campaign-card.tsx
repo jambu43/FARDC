@@ -34,7 +34,7 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
 
     return (
         <div>
-            <Link href={`/campagnes/${campaign.id}`}>
+            <Link href={`/campagnes/${campaign.id}`} passHref legacyBehavior className="cursor-pointer">
                 <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden border">
                     <div className="relative aspect-[16/9] h-1/2">
                         <Image src={campaign.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover" />

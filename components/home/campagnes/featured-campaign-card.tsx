@@ -15,7 +15,7 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
 
     return (
         <div>
-            <Link href={`/campagnes/${campaign?.id}`} passHref legacyBehavior>
+            <Link href={`/campagnes/${campaign?.id}`} passHref legacyBehavior className="cursor-pointer">
                 <div className="relative bg-white flex flex-col justify-between rounded-lg overflow-hidden border h-full ">
 
                     <div className="relative aspect-[16/9] min-h-[200px] md:min-h-[400px] ">

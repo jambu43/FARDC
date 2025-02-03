@@ -1,10 +1,11 @@
 'use client'
 import { useState } from 'react'
 import Drawer from './drawer'
-import { Link, Search, X } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import Logo from '../shared/logo'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
+import Link from 'next/link'
 
 function Mobile() {
     const [isSearchActive, setIsSearchActive] = useState(false)
