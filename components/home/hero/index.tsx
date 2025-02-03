@@ -50,7 +50,7 @@ function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image src={"/illustration.svg"} width={500} height={500} alt={"illustration"} />
+                    <Image src={"/banner-pamoja.svg"} width={500} height={500} alt={"illustration"} />
                 </motion.div>
             </div>
         </section>
