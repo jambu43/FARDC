@@ -7,8 +7,11 @@ async function CampagnePage() {
     return (
         <div className='container section'>
             <h1 className='text-2xl md:text-3xl font-bold text-primary mb-8'>
-                Nos campagnes de crowdfunding
+                Découvrir nos campagnes
             </h1>
+            <p className="mb-8">
+                Inspirez-vous des histoires qui font la différence — Explorez nos campagnes et rejoignez le mouvement !
+            </p>
             <div>
                 <GricCampaign data={data} />
             </div>

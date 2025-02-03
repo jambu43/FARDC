@@ -18,8 +18,7 @@ function ContactPage() {
                         <span className={"bg-blue mt-2 block  h-2 w-[50%]"} />
                     </h3>
                     <p>
-                        Nous sommes à votre écoute pour toute suggestion, proposition,
-                        critique et demande d&apos;informations, de renseignements, etc.
+                        Votre voix compte — Contactez-nous et ensemble, faisons résonner notre impact !
                     </p>
                     <div className={"grid grid-cols-1 gap-8 md:grid-cols-2"}>
                         <div className={""}>
