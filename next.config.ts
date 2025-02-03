@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname:
+          "supabasekong-jwos8wcggkwwo44gk4gcgogg.145.223.88.104.sslip.io",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   eslint: {

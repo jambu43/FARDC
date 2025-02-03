@@ -84,3 +84,9 @@ export const deleteFile = async (bucket: string, filePath: string) => {
 
   return data;
 };
+
+export const getPublicUrl = (path: string) => {
+  const { data } = supabase.storage.from("files").getPublicUrl(path);
+
+  return data.publicUrl;
+};
