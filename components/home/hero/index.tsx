@@ -20,7 +20,7 @@ function Hero() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                        Libérez votre créativité et lancez vos campagnes grâce au crowdfunding
+                        Bienvenue sur Pamoja, où l&apos;humanité se lève pour l&apos;Afrique
                     </motion.h1>
                     <motion.p
                         className="text-thin text-sm leading-relaxed mb-6"
@@ -30,7 +30,7 @@ function Hero() {
                     >
                        {
                         `
-                            Nous avons déjà aidé 30 080 projets culturels et entrepreneuriaux à voir le jour. Et si c'était votre tour ?
+                            Engagez-vous dès aujourd'hui pour faire entendre votre voix et transformer des vies !
                         `
                        }
                     </motion.p>

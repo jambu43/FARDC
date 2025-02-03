@@ -32,7 +32,7 @@ export default function LoginForm() {
                     </h1>
 
                     <p className="text-sm text-gray-500 text-center">
-                        Connectez-vous à votre compte
+                    Connectez-vous avec des cœurs et des esprits unis pour le changement — Faites partie de notre communauté !
                     </p>
                 </div>
                 <div className="w-full">
@@ -95,9 +95,9 @@ export default function LoginForm() {
 
                     </Link>
                     <p className="text-sm text-gray-500 text-center">
-                        Si vous n'avez pas de compte, <Link href="/register" className="text-primary hover:underline">Inscrivez-vous</Link>
+                        Si vous n&apos;avez pas de compte, <Link href="/register" className="text-primary hover:underline">Inscrivez-vous</Link>
                     </p>
-                </div>
+                </div>  
 
                 <div
                     className="flex h-8 items-end space-x-1"

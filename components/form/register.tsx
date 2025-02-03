@@ -4,7 +4,6 @@ import {
     AtSign,
     KeyIcon,
     AlertCircle,
-    Fingerprint,
     EyeIcon,
     EyeOffIcon,
     User
@@ -35,7 +34,7 @@ export default function RegisterForm() {
                     </h1>
 
                     <p className="text-sm text-gray-500 text-center">
-                        Veuillez remplir les champs pour vous inscrire
+                    Rejoignez-nous aujourd&apos;hui et devenez un acteur du changement — Inscrivez-vous pour faire entendre votre voix !
                     </p>
                 </div>
                 <div className="w-full">

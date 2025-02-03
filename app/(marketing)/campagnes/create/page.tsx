@@ -13,7 +13,7 @@ async function CreateCampagnePage() {
                     Créer une campagne
                 </h1>
                 <p>
-                    Vous pouvez ajouter une campagne de crowdfunding en remplissant le formulaire ci-dessous
+                    Transformez votre passion en action — Créez une campagne qui change des vies !
                 </p>
             </div>
 
