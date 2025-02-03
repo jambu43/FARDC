@@ -78,7 +78,7 @@ export default function AddCampaignForm({ categories }: Props) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-2">
                             <Label htmlFor="title">Titre de la campagne</Label>
-                            <Input id="title" name="title" required />
+                            <Input id="title" name="title" placeholder="Titre de la campagne" required />
                         </div>
 
                         <div>
@@ -88,7 +88,7 @@ export default function AddCampaignForm({ categories }: Props) {
                                 // @ts-ignore
                                 onValueChange={setCategoriesSelected}
                                 defaultValue={categoriesSelected}
-                                placeholder="Select frameworks"
+                                placeholder="Selectionner des categories"
                                 variant="default"
                                 animation={2}
                                 maxCount={5}
@@ -101,11 +101,11 @@ export default function AddCampaignForm({ categories }: Props) {
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="goal">Montant à atteindre en (USD)</Label>
-                            <Input id="goal" name="goal" type="number" required />
+                            <Input id="goal" name="goal" type="number" placeholder="Montant à atteindre" required />
                         </div>
                         <div className="space-y-2 md:col-span-2">
                             <Label htmlFor="description">Description</Label>
-                            <Textarea id="description" name="description" rows={10} required />
+                            <Textarea id="description" name="description" rows={10} placeholder="Description de la campagne" required />
                         </div>
                         <div>
                             <Label>Photo de couverture</Label>
