@@ -28,7 +28,11 @@ function Hero() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                        Nous avons déjà aidé 30 080 projets culturels et entrepreneuriaux à voir le jour. Et si c'était votre tour ?
+                       {
+                        `
+                            Nous avons déjà aidé 30 080 projets culturels et entrepreneuriaux à voir le jour. Et si c'était votre tour ?
+                        `
+                       }
                     </motion.p>
                     <motion.div
                         className="flex flex-col md:flex-row lg:items-center gap-4"
@@ -50,7 +54,7 @@ function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image src={"/banner-pamoja.svg"} width={500} height={500} alt={"illustration"} />
+                    <Image src={"/banner-img.jpeg"} width={500} height={500} alt={"illustration"} className="rounded-3xl"/>
                 </motion.div>
             </div>
         </section>
@@ -58,4 +62,3 @@ function Hero() {
 }
 
 export default Hero
-

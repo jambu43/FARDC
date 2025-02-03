@@ -42,24 +42,24 @@ const categories: Category[] = [
 const channels: Channel[] = [
   {
     id: "engie",
-    title: "Appel à projets ENGIE",
-    selectedBy: "Sélectionné par ENGIE",
+    title: "Appel à projets Pamoja",
+    selectedBy: "Sélectionné par Pamoja",
     image:
-      "/imagtest.jpg",
+      "/photo-manif.png",
     link: "#",
   },
   {
     id: "environment",
     title: "Environnement",
-    selectedBy: "Sélectionné par Veolia",
+    selectedBy: "Sélectionné par Pamoja",
     image: "/imagtest1.jpg",
     link: "#",
   },
   {
     id: "sport",
     title: "Sport Planète",
-    selectedBy: "Sélectionné par MAIF Sport Planète",
-    image: "/imagtest.jpg",
+    selectedBy: "Sélectionné par Pamoja",
+    image: "/sport-pamoja.webp",
     link: "#",
   },
 ]
