@@ -1,15 +1,27 @@
-import { auth } from "@/auth"
-import { redirect } from "next/navigation"
+
+import AddCampaignForm from "@/components/form/createCampaign"
+import { getDonationsCategories } from "@/actions/strapi/api/donation-categories"
+
 
 async function CreateCampagnePage() {
-    // @ts-nocheck
-    const session = await auth()
-    if (!session?.user) redirect("/login")
+    const categories = await getDonationsCategories()
+
     return (
         <div className='container section'>
-            <h1 className='text-2xl md:text-3xl font-bold text-primary mb-8'>
-                Créer une campagne
-            </h1>
+            <div className="mb-8 space-y-2">
+                <h1 className='text-2xl md:text-3xl font-bold text-primary '>
+                    Créer une campagne
+                </h1>
+                <p>
+                    Vous pouvez ajouter une campagne de crowdfunding en remplissant le formulaire ci-dessous
+                </p>
+            </div>
+
+            <div>
+
+                <AddCampaignForm categories={categories} />
+
+            </div>
         </div>
     )
 }

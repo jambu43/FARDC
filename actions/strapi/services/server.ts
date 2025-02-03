@@ -1,6 +1,6 @@
-import axios from "axios";
-import qs from "qs";
+"use server";
 import { auth } from "@/auth";
+import axios from "axios";
 
 export const getToken = async () => {
   const session = await auth();
@@ -9,35 +9,188 @@ export const getToken = async () => {
     return session?.user?.jwt || null;
   }
 };
-const token = await getToken();
 
-export const strapiApi = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
-    "https://backend-pamoja.145.223.88.104.sslip.io/api",
-  timeout: 10000,
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  },
-});
-
-export const find = (collection: string, parameters?: any) => {
-  return strapiApi.get(`${collection}?${qs.stringify(parameters)}`);
+export const getStrapiUser = async () => {
+  const token = await getToken();
+  try {
+    const response = await axios.get(
+      `${process.env.API_URL}/users/me?populate=*`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const user = response.data;
+    return {
+      id: user?.documentId,
+      username: user?.username,
+      email: user?.email,
+      role: user?.role?.name,
+      names: user?.names,
+      phone: user?.phone,
+    };
+  } catch (error) {
+    console.error(`Error fetching user: ${error}`);
+    throw error;
+  }
 };
 
-export const findOne = (collection: string, id: string, parameters?: any) => {
-  return strapiApi.get(`${collection}/${id}?${qs.stringify(parameters)}`);
+/**
+ * Fetch a Strapi collection by name.
+ *
+ * @param collection - The name of the Strapi collection to fetch.
+ * @returns The collection data as a JSON object.
+ */
+export const getCollection = async <T>(collection: string): Promise<T> => {
+  const token = await getToken();
+  try {
+    const response = await axios.get(`${process.env.API_URL}/${collection}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response?.data;
+  } catch (error) {
+    console.error(`Error fetching collection: ${error}`);
+    throw error;
+  }
+};
+/**
+ * Fetch a Strapi collection by ID.
+ *
+ * @param collection - The name of the Strapi collection to fetch.
+ * @param id - The ID of the item to fetch.
+ * @returns The collection item data as a JSON object.
+ */
+export const getCollectionById = async <T>(
+  collection: string,
+  id: string
+): Promise<T> => {
+  const token = await getToken();
+  try {
+    const response = await axios.get(
+      `${process.env.API_URL}/${collection}/${id}?populate=*`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching collection: ${error}`);
+    throw error;
+  }
 };
 
-export const create = (collection: string, data: any) => {
-  return strapiApi.post(`${collection}`, { data });
+/**
+ * Post a new item to a Strapi collection.
+ *
+ * @param collection - The name of the Strapi collection to post to.
+ * @param data - The data to post to the collection as a JSON object.
+ * @returns The created item as a JSON object with the full Strapi response.
+ */
+export const postCollection = async <T>(
+  collection: string,
+  data: Record<string, unknown>
+): Promise<T> => {
+  const token = await getToken();
+  if (!token) throw new Error("No token found");
+  try {
+    const response = await fetch(`${process.env.API_URL}/${collection}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    // if (!response.ok) {
+    //   throw new Error(
+    //     `Failed to post to collection: ${response.statusText || "unknown"}`
+    //   );
+    // }
+    const responseData = await response.json();
+    //console.log(responseData?.error.);
+
+    return responseData;
+  } catch (error) {
+    console.error(`Error posting to collection: ${error}`);
+    throw error;
+  }
 };
 
-export const update = (collection: string, id: string, data: any) => {
-  return strapiApi.put(`${collection}/${id}`, { data });
+/**
+ * Update an item in a Strapi collection.
+ *
+ * @param collection - The name of the Strapi collection to update.
+ * @param id - The ID of the item to update.
+ * @param data - The data to update the item with as a JSON object.
+ * @returns The updated item as a JSON object with the full Strapi response.
+ */
+export const putCollection = async <T>(
+  collection: string,
+  id: string,
+  data: Record<string, unknown>
+): Promise<T> => {
+  const token = await getToken();
+  try {
+    const response = await fetch(`${process.env.API_URL}/${collection}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const responseData = await response.json();
+    console.log(responseData?.error);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to update collection: ${response.statusText || "unknown"}`
+      );
+    }
+    return responseData as T;
+  } catch (error) {
+    console.error(`Error updating collection: ${error}`);
+    throw error;
+  }
 };
 
-export const remove = (collection: string, id: string) => {
-  return strapiApi.delete(`${collection}/${id}`);
+/**
+ * Delete an item from a Strapi collection.
+ *
+ * @param collection - The name of the Strapi collection to delete from.
+ * @param id - The ID of the item to delete.
+ * @returns The deleted item as a JSON object with the full Strapi response.
+ */
+export const deleteCollection = async <T>(
+  collection: string,
+  id: string
+): Promise<T> => {
+  const token = await getToken();
+  try {
+    const response = await axios.delete(
+      `${process.env.API_URL}/${collection}/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    if (!response.data) {
+      const error = await response.data;
+      throw new Error(
+        `Failed to delete collection: ${error.error.message} (${error.error.status})`
+      );
+    }
+    return response.data as Promise<T>;
+  } catch (error) {
+    console.error(`Error deleting collection: ${error}`);
+    throw error;
+  }
 };
