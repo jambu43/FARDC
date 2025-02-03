@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { CampagneTabs } from "@/components/campagnes/tab";
 import { getCampaign } from "@/actions/strapi/api/campaigns/find-one";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{
@@ -63,7 +64,7 @@ async function CampagneDetails({ params }: Props) {
                     <div className="flex gap-2 text-sm text-zinc-600">
                       {
                         campaign?.categories.map((category: any) => (
-                          <div className="flex items-center flex-wrap">
+                          <div key={category} className="flex items-center flex-wrap">
                             <span className="text-zinc-600 mr-2">•</span>
                             <span key={category.id}>{category}</span>
                           </div>
@@ -106,13 +107,18 @@ async function CampagneDetails({ params }: Props) {
                     </div>
                   </div>
                 </div>
+                <div>
+                  <Link href={`/campagnes/donations/${campaign.id}`}>
+                    <Button className="w-full bg-primary hover:bg-[#1994E6] text-white py-8">
+                      <span className="flex flex-col">
+                        <span className="text-lg font-bold">CONTRIBUER</span>
+                        <span className="text-sm font-normal">À partir de 1 $</span>
+                      </span>
+                    </Button>
+                  </Link>
+                </div>
 
-                <Button className="w-full bg-primary hover:bg-[#1994E6] text-white py-8">
-                  <span className="flex flex-col">
-                    <span className="text-lg font-bold">CONTRIBUER</span>
-                    <span className="text-sm font-normal">À partir de 1 $</span>
-                  </span>
-                </Button>
+
 
                 <p className="text-center text-sm text-zinc-600">
                   <Button variant="link" className="h-auto p-0">
