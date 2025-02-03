@@ -63,10 +63,10 @@ async function CampagneDetails({ params }: Props) {
                     <h2 className="font-semibold">{campaign.organization}</h2>
                     <div className="flex gap-2 text-sm text-zinc-600">
                       {
-                        campaign?.categories.map((category: any) => (
+                        campaign?.categories.map((category: string) => (
                           <div key={category} className="flex items-center flex-wrap">
                             <span className="text-zinc-600 mr-2">•</span>
-                            <span key={category.id}>{category}</span>
+                            <span key={category}>{category}</span>
                           </div>
                         ))
                       }
