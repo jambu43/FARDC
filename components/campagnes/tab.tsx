@@ -70,16 +70,7 @@ export function CampagneTabs({ defaultTab = "collecte" }: ProjectTabsProps) {
                 CONTRIBUER
               </Button>
             </div>
-            <div className="bg-zinc-50 rounded-lg p-6 flex items-center gap-4 mt-10">
-              {`
-                Tibert est une maison qui aime remettre au goût du jour des us et coutumes de la littérature, de l'édition du temps passé. Nous renouons notamment avec la tradition de la souscription. Par le passé, il était courant qu'un éditeur proposa ses ouvrages en "précommande" : le lecteur achète le livre avant sa publication et le reçoit ensuite dès sa sortie. 
-
-Notre travail est relativement confidentiel, cinq ouvrages par an sont publiés tout au plus. Cela afin de penser chaque exemplaire comme un bijou, une oeuvre d'art à part entière. Ainsi, nous aimons proposer la souscription à nos lecteurs. Depuis 2016, nous avons choisi ulule comme partenaire dans cette aventure, modernisant le traditionnel bulletin d'abonnement envoyé par la poste.  
-              `}
-              <Button className="bg-primary hover:bg-[#1994E6] text-white">
-                CONTRIBUER
-              </Button>
-            </div>
+            
           </TabsContent>
 
           <TabsContent value="contreparties">

@@ -21,7 +21,7 @@ export const getCampaign = async (id: string) => {
     featuredImage: getPublicUrl(campaign?.featuredImage),
     organization: campaign?.users_permissions_user
       ? campaign?.users_permissions_user?.username
-      : "PAMOJA Congo",
+      : "PAMOJA",
     daysLeft: dayLefts(campaign?.endDate),
     contributions: campaign?.donations.length || 0,
     categories:
