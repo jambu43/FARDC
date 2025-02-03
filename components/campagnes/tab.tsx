@@ -43,8 +43,8 @@ export function CampagneTabs({ defaultTab = "collecte" }: ProjectTabsProps) {
               value={tab.id}
               className={`
                 flex items-center gap-2 px-1 py-4 border-b-2 border-transparent
-                data-[state=active]:border-[#19A5FF] data-[state=active]:text-[#19A5FF]
-                rounded-none hover:text-[#19A5FF] transition-colors
+                data-[state=active]:border-primary data-[state=active]:text-primary
+                rounded-none hover:text-primary transition-colors
               `}
             >
               {tab.label}
@@ -66,7 +66,7 @@ export function CampagneTabs({ defaultTab = "collecte" }: ProjectTabsProps) {
                 Cette publication est réservée aux personnes qui suivent la
                 collecte
               </p>
-              <Button className="bg-[#19A5FF] hover:bg-[#1994E6] text-white">
+              <Button className="bg-primary hover:bg-[#1994E6] text-white">
                 CONTRIBUER
               </Button>
             </div>
@@ -76,7 +76,7 @@ export function CampagneTabs({ defaultTab = "collecte" }: ProjectTabsProps) {
 
 Notre travail est relativement confidentiel, cinq ouvrages par an sont publiés tout au plus. Cela afin de penser chaque exemplaire comme un bijou, une oeuvre d'art à part entière. Ainsi, nous aimons proposer la souscription à nos lecteurs. Depuis 2016, nous avons choisi ulule comme partenaire dans cette aventure, modernisant le traditionnel bulletin d'abonnement envoyé par la poste.  
               `}
-              <Button className="bg-[#19A5FF] hover:bg-[#1994E6] text-white">
+              <Button className="bg-primary hover:bg-[#1994E6] text-white">
                 CONTRIBUER
               </Button>
             </div>

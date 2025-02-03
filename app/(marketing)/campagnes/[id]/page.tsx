@@ -94,7 +94,7 @@ async function CampagneDetails({ params }: Props) {
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#19A5FF] hover:bg-[#1994E6] text-white py-6">
+                <Button className="w-full bg-primary hover:bg-[#1994E6] text-white py-8">
                   <span className="flex flex-col">
                     <span className="text-lg font-bold">CONTRIBUER</span>
                     <span className="text-sm font-normal">À partir de 1 $</span>
