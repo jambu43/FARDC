@@ -1,10 +1,11 @@
-import React from "react";
 
 import Image from "next/image";
 import { Share2, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { CampagneTabs } from "@/components/campagnes/tab";
+import { getCampaign } from "@/actions/strapi/api/campaigns/find-one";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
@@ -14,12 +15,21 @@ type Props = {
 
 async function CampagneDetails({ params }: Props) {
   const { id } = await params;
+
+  const campaign = await getCampaign(id);
+
+  if (!campaign) {
+    return notFound();
+  }
   return (
     <div>
       <div className="bg-secondary pb-8 h-[30rem] "></div>
       <section className="container -mt-[25rem] py-8 px-4">
+        <pre>
+          {JSON.stringify(campaign, null, 2)}
+        </pre>
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          {/* Header */}
+
           <div className="p-6 md:p-8 space-y-4">
             <h1 className="text-2xl md:text-xl font-bold text-center">
               Aide d&apos;urgence pour les victimes du séisme {id}

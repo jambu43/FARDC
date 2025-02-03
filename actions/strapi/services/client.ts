@@ -13,7 +13,9 @@ export const strapiApi = axios.create({
 });
 
 export const find = async (collection: string, parameters?: any) => {
-  return await strapiApi.get(`${collection}?${qs.stringify(parameters)}`);
+  return await strapiApi.get(
+    `${collection}?populate=*&${qs.stringify(parameters)}`
+  );
 };
 
 export const findOne = async (
@@ -21,7 +23,10 @@ export const findOne = async (
   id: string,
   parameters?: any
 ) => {
-  return await strapiApi.get(`${collection}/${id}?${qs.stringify(parameters)}`);
+  const response = await strapiApi.get(
+    `${collection}/${id}?${qs.stringify(parameters)}`
+  );
+  return response.data?.data;
 };
 
 export const create = async (collection: string, data: any) => {
