@@ -25,18 +25,15 @@ async function CampagneDetails({ params }: Props) {
     <div>
       <div className="bg-secondary pb-8 h-[30rem] "></div>
       <section className="container -mt-[25rem] py-8 px-4">
-        <pre>
-          {JSON.stringify(campaign, null, 2)}
-        </pre>
+
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
 
           <div className="p-6 md:p-8 space-y-4">
             <h1 className="text-2xl md:text-xl font-bold text-center">
-              Aide d&apos;urgence pour les victimes du séisme {id}
+              {campaign.title}
             </h1>
             <p className="text-center text-zinc-600 font-md">
-              Soutenez notre action humanitaire pour venir en aide aux
-              populations touchées par cette crise.
+              {campaign.description}
             </p>
           </div>
 
@@ -46,7 +43,7 @@ async function CampagneDetails({ params }: Props) {
             <div className="md:w-[60%]  p-6 md:p-8">
               <div className="relative aspect-[16/9] md:aspect-[4/3] h-full">
                 <Image
-                  src="/guerre.jpg"
+                  src={campaign?.featuredImage || "/guerre.jpg"}
                   alt=""
                   fill
                   className="object-cover"
@@ -62,11 +59,17 @@ async function CampagneDetails({ params }: Props) {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-zinc-100 rounded-full" />
                   <div>
-                    <h2 className="font-semibold">Tibert Editions</h2>
+                    <h2 className="font-semibold">{campaign.organization}</h2>
                     <div className="flex gap-2 text-sm text-zinc-600">
-                      <span>Billezois</span>
-                      <span>•</span>
-                      <span>Édition & Média</span>
+                      {
+                        campaign?.categories.map((category: any) => (
+                          <div className="flex items-center flex-wrap">
+                            <span className="text-zinc-600 mr-2">•</span>
+                            <span key={category.id}>{category}</span>
+                          </div>
+                        ))
+                      }
+
                     </div>
                   </div>
                 </div>
@@ -77,26 +80,26 @@ async function CampagneDetails({ params }: Props) {
                 <div className="space-y-4">
                   <div className="space-y-1">
                     <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold">297</span>
+                      <span className="text-2xl font-bold">{campaign.amountCollected}$</span>
                       <span className="text-sm text-zinc-600">
-                        préventes sur un objectif de 300
+                        collectés sur <span className="font-bold text-primary text-2xl">{campaign.goal}$</span>
                       </span>
                     </div>
-                    <Progress value={99} className="h-2" />
+                    <Progress value={campaign.progress} className="h-2" />
                     <span className="text-sm font-medium text-emerald-600">
-                      99%
+                      {campaign.progress}%
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <span className="text-2xl font-bold">296</span>
+                      <span className="text-2xl font-bold">{campaign.contributions}</span>
                       <span className="text-sm text-zinc-600 block">
-                        contributions
+                        contribution(s)
                       </span>
                     </div>
                     <div className="space-y-1">
-                      <span className="text-2xl font-bold">33</span>
+                      <span className="text-2xl font-bold">{campaign.daysLeft}</span>
                       <span className="text-sm text-zinc-600 block">
                         jours restants
                       </span>

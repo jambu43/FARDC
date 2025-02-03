@@ -14,6 +14,7 @@ export const createCampaign = async (
     startDate,
     endDate,
     banner,
+    goal,
     featuredImage,
     categories,
   } = data;
@@ -22,6 +23,7 @@ export const createCampaign = async (
     !description ||
     !startDate ||
     !endDate ||
+    !goal ||
     !banner ||
     !featuredImage ||
     !categories
@@ -37,6 +39,7 @@ export const createCampaign = async (
         description,
         startDate,
         endDate,
+        goal,
         banner,
         featuredImage,
         donation_categories: JSON.parse(categories.toString()),
