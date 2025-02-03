@@ -7,7 +7,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CampaignCard } from "./campaign-card"
 import { FeaturedCampaignCard } from "./featured-campaign-card"
 import type { Campaign } from "@/types/campaign"
-import { generateMockCampaigns } from "@/lib/mock-data"
 import useEmblaCarousel from "embla-carousel-react"
 import Link from "next/link"
 
@@ -23,9 +22,13 @@ const categories = [
     { id: "droits", label: "Droits Humains" },
 ]
 
-export default function CampagnesSection() {
-    const [campaigns, setCampaigns] = useState<Campaign[]>([])
-    const [loading, setLoading] = useState(true)
+type Props = {
+    campaigns: any
+}
+
+
+export default function CampagnesSection({ campaigns }: Props) {
+
     const [activeCategory, setActiveCategory] = useState("a-la-une")
     const [emblaRef, emblaApi] = useEmblaCarousel({
         align: "start",
@@ -34,14 +37,7 @@ export default function CampagnesSection() {
         slidesToScroll: 3,
     })
 
-    useEffect(() => {
-        const fetchCampaigns = async () => {
-            const data = await generateMockCampaigns(30)
-            setCampaigns(data)
-            setLoading(false)
-        }
-        fetchCampaigns()
-    }, [])
+
 
     useEffect(() => {
         if (emblaApi) {
@@ -51,7 +47,7 @@ export default function CampagnesSection() {
 
     const filteredCampaigns = useMemo(() => {
         if (activeCategory === "a-la-une") return campaigns
-        return campaigns.filter((campaign) => campaign.category.toLowerCase().includes(activeCategory.replace("-", " ")))
+        return campaigns.filter((campaign: any) => campaign.categories.some((category: string) => categories.find((cat) => cat.id === activeCategory)?.id.toLowerCase().includes(category.toLowerCase())))
     }, [campaigns, activeCategory])
 
     const scrollPrev = () => emblaApi?.scrollPrev()
@@ -123,30 +119,8 @@ export default function CampagnesSection() {
 
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
-                    {loading ? (
-                        <div className="flex flex-col w-full sm:flex-row sm:gap-4 md:gap-6">
-                            <div className="w-full sm:w-1/2 md:w-1/3 aspect-[3/4] bg-gray-200 animate-pulse rounded-lg mb-4 sm:mb-0" />
-                            <div className="w-full sm:w-1/2 md:w-2/3 flex flex-col gap-4 md:gap-6">
-                                <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                                    {Array.from({ length: 3 }).map((_, index) => (
-                                        <div
-                                            key={`skeleton-top-${index}`}
-                                            className="w-full sm:w-1/3 aspect-[4/3] bg-gray-200 animate-pulse rounded-lg mb-4 sm:mb-0"
-                                        />
-                                    ))}
-                                </div>
-                                <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                                    {Array.from({ length: 3 }).map((_, index) => (
-                                        <div
-                                            key={`skeleton-bottom-${index}`}
-                                            className="w-full sm:w-1/3 aspect-[4/3] bg-gray-200 animate-pulse rounded-lg"
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    ) : filteredCampaigns.length > 0 ? (
-                        filteredCampaigns.map((_, index) => (
+                    {filteredCampaigns.length > 0 ? (
+                        filteredCampaigns.map((_: any, index: number) => (
                             <div className="flex-[0_0_100%] mr-4 md:mr-6" key={index}>
                                 {renderCampaigns(filteredCampaigns.slice(index * 7, (index + 1) * 7))}
                             </div>

@@ -2,20 +2,18 @@ import axios from "axios";
 import qs from "qs";
 
 export const strapiApi = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
-    "https://backend-pamoja.145.223.88.104.sslip.io/api",
+  baseURL: process.env.STRAPI_URL || "http://localhost:1337/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.TOKEN}`,
   },
 });
 
 export const find = async (collection: string, parameters?: any) => {
-  return await strapiApi.get(
-    `${collection}?populate=*&${qs.stringify(parameters)}`
+  const response = await strapiApi.get(
+    `${collection}?${qs.stringify(parameters)}`
   );
+  return response.data?.data;
 };
 
 export const findOne = async (

@@ -23,7 +23,7 @@ export const getCampaign = async (id: string) => {
       ? campaign?.users_permissions_user?.username
       : "PAMOJA",
     daysLeft: dayLefts(campaign?.endDate),
-    contributions: campaign?.donations.length || 0,
+    contributions: campaign?.donations?.length || 0,
     categories:
       campaign?.donation_categories?.map((category: any) => category.name) ||
       [],

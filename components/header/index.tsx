@@ -26,7 +26,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/"
-                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     Accueil
                                 </Link>
@@ -34,7 +34,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/campagnes"
-                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     Campagnes
                                 </Link>
@@ -42,7 +42,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/contact"
-                                    className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     Contact
                                 </Link>
