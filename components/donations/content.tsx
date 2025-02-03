@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AtSymbolIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
+import { BoutonPaiement } from "../paiements/button";
 
 type DonationItem = {
     name: string;
@@ -226,9 +227,7 @@ function DonationsDetails({ campagne }: Props) {
                                 </div>
 
                                 {/* Action Button */}
-                                <Button className="w-full bg-primary hover:bg-primary text-white">
-                                    Valider ma sélection
-                                </Button>
+                                <BoutonPaiement amount={amount + 2} />
 
                                 {/* Footer Info */}
                                 <div className="space-y-3 text-sm text-zinc-600">
