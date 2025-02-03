@@ -272,10 +272,10 @@ export const MultiSelect = React.forwardRef<
                             </div>
                         ) : (
                             <div className="flex items-center justify-between w-full mx-auto">
-                                <span className="text-sm text-muted-foreground mx-3">
+                                <span className="text-sm text-gray-400 mx-3">
                                     {placeholder}
                                 </span>
-                                <ChevronDown className="h-4 cursor-pointer text-muted-foreground mx-2" />
+                                <ChevronDown className="h-4 cursor-pointer text-black mx-2" />
                             </div>
                         )}
                     </Button>
@@ -292,7 +292,7 @@ export const MultiSelect = React.forwardRef<
                             className="text-xs"
                         />
                         <CommandList>
-                            <CommandEmpty>No results found.</CommandEmpty>
+                            <CommandEmpty>Pas de resultat.</CommandEmpty>
                             <CommandGroup>
                                 <CommandItem
                                     key="all"
