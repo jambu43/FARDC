@@ -14,7 +14,7 @@ import { DateRangePicker } from "@/components/form/data-range-picker"
 import { MultiSelect } from "./multi-select"
 import { createCampaign } from "@/actions/strapi/api/campaigns/create"
 import { uploadFile } from "@/actions/supabase/storage"
-import { fi } from "date-fns/locale"
+
 
 
 type Props = {
@@ -30,6 +30,7 @@ export default function AddCampaignForm({ categories }: Props) {
     const [isPending, startTransition] = useTransition()
     const [featuredImage, setFeaturedImage] = useState<File | null>(null)
     const [banner, setBanner] = useState<File | null>(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleBannerAccepted = (file: File) => {
         setBannerPreview(URL.createObjectURL(file))
@@ -51,6 +52,7 @@ export default function AddCampaignForm({ categories }: Props) {
         if (!banner || !featuredImage) {
             return
         }
+        setIsLoading(true)
         const bannerData = await uploadFile(banner)
         const featuredImageData = await uploadFile(featuredImage)
 
@@ -60,6 +62,7 @@ export default function AddCampaignForm({ categories }: Props) {
 
         formData.set("banner", bannerData.path)
         formData.set("featuredImage", featuredImageData.path)
+        setIsLoading(false)
         startTransition(() => {
             formAction(formData)
         })
@@ -135,7 +138,7 @@ export default function AddCampaignForm({ categories }: Props) {
 
 
                     <Button type="submit" disabled={isPending} className="bg-primary">
-                        {isPending ? (
+                        {isPending || isLoading ? (
                             <motion.div
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
@@ -161,18 +164,7 @@ export default function AddCampaignForm({ categories }: Props) {
                         </motion.div>
                     )}
 
-                    {state?.success && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Alert className="mt-4">
-                                <AlertDescription>La campagne a été ajoutée avec succès!</AlertDescription>
-                            </Alert>
-                        </motion.div>
-                    )}
+
                 </AnimatePresence>
             </CardContent>
         </Card>

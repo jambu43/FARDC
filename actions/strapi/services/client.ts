@@ -12,22 +12,27 @@ export const strapiApi = axios.create({
   },
 });
 
-export const find = (collection: string, parameters?: any) => {
-  return strapiApi.get(`${collection}?${qs.stringify(parameters)}`);
+export const find = async (collection: string, parameters?: any) => {
+  return await strapiApi.get(`${collection}?${qs.stringify(parameters)}`);
 };
 
-export const findOne = (collection: string, id: string, parameters?: any) => {
-  return strapiApi.get(`${collection}/${id}?${qs.stringify(parameters)}`);
+export const findOne = async (
+  collection: string,
+  id: string,
+  parameters?: any
+) => {
+  return await strapiApi.get(`${collection}/${id}?${qs.stringify(parameters)}`);
 };
 
-export const create = (collection: string, data: any) => {
-  return strapiApi.post(`${collection}`, { data });
+export const create = async (collection: string, data: any) => {
+  const response = await strapiApi.post(`${collection}`, data);
+  return response.data;
 };
 
-export const update = (collection: string, id: string, data: any) => {
-  return strapiApi.put(`${collection}/${id}`, { data });
+export const update = async (collection: string, id: string, data: any) => {
+  return await strapiApi.put(`${collection}/${id}`, data);
 };
 
-export const remove = (collection: string, id: string) => {
-  return strapiApi.delete(`${collection}/${id}`);
+export const remove = async (collection: string, id: string) => {
+  return await strapiApi.delete(`${collection}/${id}`);
 };
