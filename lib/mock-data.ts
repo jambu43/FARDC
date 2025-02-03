@@ -29,7 +29,7 @@ export function generateMockCampaigns(count: number): Promise<Campaign[]> {
         image: `/guerre.jpg`,
         title:
           i === 0
-            ? "Aide d'urgence pour les victimes du séisme"
+            ? "Aide aux enfants déplacés de guerre à Goma en RDC SOS"
             : `Campagne humanitaire ${i + 1}`,
         organizer:
           organizations[Math.floor(Math.random() * organizations.length)],
