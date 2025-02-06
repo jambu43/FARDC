@@ -128,9 +128,6 @@ export const columns: ColumnDef<Donor>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(donor.id)}>
-              Copier l&apos;ID du donateur
-            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <Link href={`/dashboard/organisation/donors/${donor.id}`}>

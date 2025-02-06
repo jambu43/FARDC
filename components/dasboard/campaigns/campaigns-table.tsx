@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import Link from "next/link"
 
 const data: Campaign[] = [
   {
@@ -128,11 +129,13 @@ export const columns: ColumnDef<Campaign>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(campaign.id)}>
-              Copier l&apos;ID de la campagne
-            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Voir les détails</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/dashboard/organisation/campagnes/${campaign.id}`}>
+              Voir les détails
+              </Link>
+            </DropdownMenuItem>
+
             <DropdownMenuItem>Modifier la campagne</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
