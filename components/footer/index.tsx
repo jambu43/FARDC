@@ -128,10 +128,10 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-stretch gap-6">
             <div className="flex-1 text-sm text-zinc-400 bg-zinc-800 space-y-2 p-5 rounded-md">
               <p className="text-sm">
-                Pamoja est une plateforme de crowdfunding
+                GOMA TU SAYIDIYE est une plateforme de crowdfunding
               </p>
               <p className="text-sm">
-                Adresse : 10 rue de Penthièvre 75008 Paris. Email : contact@Pamoja.com
+                Adresse : 10 rue de Penthièvre 75008 Paris. Email : contact@GOMA TU SAYIDIYE.com
               </p>
             </div>
             <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-zinc-800 space-y-2 p-5 rounded-md">

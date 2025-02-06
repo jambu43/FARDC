@@ -42,8 +42,8 @@ const categories: Category[] = [
 const channels: Channel[] = [
   {
     id: "engie",
-    title: "Appel à projets Pamoja",
-    selectedBy: "Sélectionné par Pamoja",
+    title: "Appel à projets Pamoja ",
+    selectedBy: "Sélectionné par Pamoja ",
     image:
       "/photo-manif.png",
     link: "#",
@@ -51,15 +51,15 @@ const channels: Channel[] = [
   {
     id: "environment",
     title: "Environnement",
-    selectedBy: "Sélectionné par Pamoja",
+    selectedBy: "Sélectionné par Pamoja ",
     image: "/imagtest1.jpg",
     link: "#",
   },
   {
     id: "sport",
     title: "Sport Planète",
-    selectedBy: "Sélectionné par Pamoja",
-    image: "/sport-pamoja.webp",
+    selectedBy: "Sélectionné par Pamoja ",
+    image: "/sport-Pamoja .webp",
     link: "#",
   },
 ]

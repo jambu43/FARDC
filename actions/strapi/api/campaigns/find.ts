@@ -23,7 +23,7 @@ export const getCampaigns = async () => {
       featuredImage: getPublicUrl(item.featuredImage),
       organization: item.users_permissions_user
         ? item.users_permissions_user?.username
-        : "PAMOJA",
+        : "Pamoja ",
       daysLeft: dayLefts(item.endDate),
       contributions: item.donations?.length || 0,
       categories:

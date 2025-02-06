@@ -20,7 +20,7 @@ function Hero() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                        Bienvenue sur Pamoja, où l&apos;humanité se lève pour l&apos;Afrique
+                        Bienvenue sur Pamoja , où l&apos;humanité se lève pour l&apos;Afrique
                     </motion.h1>
                     <motion.p
                         className="text-thin text-sm leading-relaxed mb-6"

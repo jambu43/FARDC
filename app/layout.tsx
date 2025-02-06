@@ -30,7 +30,7 @@ const antiqueOliveRegular = localFont({
 
 
 export const metadata: Metadata = {
-  title: "PAMOJA",
+  title: "Pamoja ",
   description: "Plateforme de Collecte de Fonds  pour les Victimes des Guerres en RDC",
 };
 
