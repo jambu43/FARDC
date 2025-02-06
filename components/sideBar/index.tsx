@@ -12,75 +12,32 @@ const navStructure = [
   },
   {
     id: "Campagnes",
-    name: "campagnes",
+    name: "Campagnes",
     icon: "Briefcase",
     path: "/campagnes",
     items: [
       {
         id: "campagnes",
         name: "Toutes les Campagnes",
-        path: "/compagne/all",
+        path: "/dashboard/organisation/campagnes/list",
       },
       {
         id: "create-campagnes",
         name: "Créer Campagnes",
         path: "/dashboard/organisation/campagnes/create",
       },
-      {
-        id: "active-campagnes",
-        name: "Campagnes Actives",
-        path: "/campagnes/active",
-      },
-      {
-        id: "archived-campagnes",
-        name: "Campagnes Archivées",
-        path: "/compagnes/archived",
-      },
     ],
   },
   {
-    id: "tasks",
-    name: "Tasks",
-    icon: "CheckSquare",
-    path: "/tasks",
-    items: [
-      {
-        id: "my-tasks",
-        name: "My Tasks",
-        path: "/tasks/my",
-      },
-      {
-        id: "assigned-tasks",
-        name: "Assigned Tasks",
-        path: "/tasks/assigned",
-      },
-      {
-        id: "completed-tasks",
-        name: "Completed Tasks",
-        path: "/tasks/completed",
-      },
-    ],
-  },
-  {
-    id: "team",
-    name: "Team",
+    id: "donateurs",
+    name: "Donateurs",
     icon: "Users",
-    path: "/team",
+    path: "/dashboard/organisation/donors/list",
     items: [
       {
         id: "team-members",
-        name: "Team Members",
-        path: "/team/members",
-      },
-      {
-        id: "roles",
-        name: "Roles",
-        path: "/team/roles",
-      },
-      {
-        id: "permissions",
-        name: "Permissions",
-        path: "/team/permissions",
+        name: "Liste de donateurs",
+        path: "/dashboard/organisation/donors/list",
       },
     ],
   },
