@@ -1,9 +1,13 @@
 
 import AddCampaignForm from "@/components/form/createCampaign"
 import { getDonationsCategories } from "@/actions/strapi/api/donation-categories"
+import { auth } from "@/auth"
+import { redirect } from "next/navigation"
 
 
 async function CreateCampagnePage() {
+    const session = await auth()
+    if (!session) redirect("/login")
     const categories = await getDonationsCategories()
 
     return (

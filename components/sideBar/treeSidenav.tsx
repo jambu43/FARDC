@@ -65,7 +65,9 @@ export function TreeSidenav({ items, currentPath }: TreeSidenavProps) {
           onClick={() => handleClick(item)}
           className={cn(
             "flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
-            isActive ? "bg-gray-200 text-gray-900 font-medium" : "text-gray-700 hover:bg-gray-100",
+            isActive
+              ? "bg-gray-200 text-gray-900 font-medium dark:bg-gray-800 dark:text-gray-200"
+              : "text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700",
             hasItems && "font-medium",
           )}
           style={{ paddingLeft: `${(level + 1) * 12}px` }}
@@ -84,9 +86,8 @@ export function TreeSidenav({ items, currentPath }: TreeSidenavProps) {
   }
 
   return (
-    <div className="w-64 overflow-hidden rounded-lg border border-gray-200 bg-white p-2 shadow-sm">
+    <div className="w-64 overflow-hidden rounded-lg border border-gray-200 bg-white p-2 shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <div className="space-y-0.5">{items.map((item, index) => renderItem(item, 0, index === items.length - 1))}</div>
     </div>
   )
 }
-

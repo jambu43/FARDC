@@ -2,6 +2,10 @@
 
 import { TreeSidenav } from "@/components/sideBar/treeSidenav"
 import { useState } from "react"
+import { logout } from "@/actions/logout"
+import { Button } from "../ui/button"
+import { LogOut } from "lucide-react"
+
 
 const navStructure = [
   {
@@ -63,11 +67,7 @@ const navStructure = [
         name: "Notifications",
         path: "/settings/notifications",
       },
-      {
-        id: "integrations",
-        name: "Integrations",
-        path: "/settings/integrations",
-      },
+
     ],
   },
 ]
@@ -76,33 +76,15 @@ export default function SideBar() {
   const [currentPath, setCurrentPath] = useState("/dashboard")
 
   return (
-    <div className="p-8">
+    <div className="section">
       <div className="">
         <TreeSidenav items={navStructure} currentPath={currentPath} />
-        <select
-          value={currentPath}
-          onChange={(e) => setCurrentPath(e.target.value)}
-          className="mt-4 p-2 border rounded"
-        >
-          <option value="/dashboard">Dashboard</option>
-          <option value="/projects">Projects</option>
-          <option value="/projects/all">All Projects</option>
-          <option value="/projects/active">Active Projects</option>
-          <option value="/projects/archived">Archived Projects</option>
-          <option value="/tasks">Tasks</option>
-          <option value="/tasks/my">My Tasks</option>
-          <option value="/tasks/assigned">Assigned Tasks</option>
-          <option value="/tasks/completed">Completed Tasks</option>
-          <option value="/team">Team</option>
-          <option value="/team/members">Team Members</option>
-          <option value="/team/roles">Roles</option>
-          <option value="/team/permissions">Permissions</option>
-          <option value="/reports">Reports</option>
-          <option value="/settings">Settings</option>
-          <option value="/settings/account">Account Settings</option>
-          <option value="/settings/notifications">Notifications</option>
-          <option value="/settings/integrations">Integrations</option>
-        </select>
+        <form action={logout}>
+          <Button className="w-full mt-4" type="submit">
+            <LogOut className="w-4 h-4 mr-2" />
+            Logout
+          </Button>
+        </form>
       </div>
     </div>
   )

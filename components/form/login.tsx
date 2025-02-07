@@ -14,6 +14,7 @@ import { authenticate } from '@/actions';
 import Logo from '@/components/shared/logo';
 import Link from 'next/link'
 
+
 export default function LoginForm() {
     const [errorMessage, dispatch] = useActionState(authenticate, undefined);
     const [showPassword, setShowPassword] = useState(false);
@@ -32,10 +33,13 @@ export default function LoginForm() {
                     </h1>
 
                     <p className="text-sm text-gray-500 text-center">
-                    Connectez-vous avec des cœurs et des esprits unis pour le changement — Faites partie de notre communauté !
+                        Connectez-vous avec des cœurs et des esprits unis pour le changement — Faites partie de notre communauté !
                     </p>
                 </div>
-                <div className="w-full">
+                <div className="w-full relative h-full">
+
+
+
                     <div>
                         <label
                             className="mb-3 mt-5 block text-xs font-medium text-gray-900"
@@ -97,7 +101,14 @@ export default function LoginForm() {
                     <p className="text-sm text-gray-500 text-center">
                         Si vous n&apos;avez pas de compte, <Link href="/register" className="text-primary hover:underline">Inscrivez-vous</Link>
                     </p>
-                </div>  
+                    <div className="mt-4 ">
+                        <Link href={'/'}>
+                            <Button>
+                                Retourner sur la page d'accueil
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
 
                 <div
                     className="flex h-8 items-end space-x-1"
