@@ -38,3 +38,13 @@ export const getStats = async () => {
     amountCollected,
   };
 };
+
+export const getComparaisonOfCampaignsCreatedByMonth = async () => {
+  const user = await getStrapiUser();
+  const userId = user?.id;
+  const campaigns = await getCollection(
+    `campaigns?fields=createdAt&filters[users_permissions_user][documentId][$eq]=${userId}&pagination[pageSize]=25`
+  );
+
+  return campaigns;
+};

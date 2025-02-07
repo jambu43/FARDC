@@ -1,11 +1,16 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { getStats } from '@/actions/strapi/api/users/stats'
+import { getStats, getComparaisonOfCampaignsCreatedByMonth } from '@/actions/strapi/api/users/stats'
 
 
 async function Indicateurs() {
     const stats = await getStats()
+    const comparaison = await getComparaisonOfCampaignsCreatedByMonth()
     return (
         <>
+            <pre>
+
+                {JSON.stringify(comparaison, null, 2)}
+            </pre>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
