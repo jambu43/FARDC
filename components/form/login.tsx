@@ -103,7 +103,7 @@ export default function LoginForm() {
                     </p>
                     <div className="mt-4 ">
                         <Link href={'/'}>
-                            <Button>
+                            <Button className="w-full bg-secondary">
                                 Retourner sur la page d'accueil
                             </Button>
                         </Link>
