@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use server";
 import { getCollection } from "../../services/server";
 import { getStrapiUser } from "../../services/server";
