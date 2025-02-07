@@ -45,7 +45,6 @@ export const createCampaign = async (
         donation_categories: JSON.parse(categories.toString()),
       },
     });
-    console.log(data);
     id = data.data?.documentId;
   } catch (error) {
     console.log(error);

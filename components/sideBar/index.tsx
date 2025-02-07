@@ -23,12 +23,12 @@ const navStructure = [
       {
         id: "campagnes",
         name: "Toutes les Campagnes",
-        path: "/dashboard/organisation/campagnes/list",
+        path: "/dashboard/organisations/campagnes/list",
       },
       {
         id: "create-campagnes",
         name: "Créer Campagnes",
-        path: "/dashboard/organisation/campagnes/create",
+        path: "/dashboard/organisations/campagnes/create",
       },
     ],
   },
@@ -36,12 +36,12 @@ const navStructure = [
     id: "donateurs",
     name: "Donateurs",
     icon: "Users",
-    path: "/dashboard/organisation/donors/list",
+    path: "/dashboard/organisations/donors/list",
     items: [
       {
         id: "team-members",
         name: "Liste de donateurs",
-        path: "/dashboard/organisation/donors/list",
+        path: "/dashboard/organisations/donors/list",
       },
     ],
   },
@@ -52,20 +52,20 @@ const navStructure = [
     path: "/reports",
   },
   {
-    id: "settings",
-    name: "Settings",
+    id: "parametres",
+    name: "Paramètres",
     icon: "Settings",
-    path: "/settings",
+    path: "/parametres",
     items: [
       {
         id: "account-settings",
-        name: "Account Settings",
-        path: "/settings/account",
+        name: "Paramètres du compte",
+        path: "/dashboard/organisations/parametres/compte",
       },
       {
         id: "notifications",
         name: "Notifications",
-        path: "/settings/notifications",
+        path: "/dashboard/organisations/parametres/notifications",
       },
 
     ],

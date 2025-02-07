@@ -10,10 +10,15 @@ export const strapiApi = axios.create({
 });
 
 export const find = async (collection: string, parameters?: any) => {
-  const response = await strapiApi.get(
-    `${collection}?${qs.stringify(parameters)}`
-  );
-  return response.data?.data;
+  try {
+    const response = await strapiApi.get(
+      `${collection}?${qs.stringify(parameters)}`
+    );
+    return response.data?.data;
+  } catch (error) {
+    console.error(`Error fetching collection: ${error}`);
+    throw error;
+  }
 };
 
 export const findOne = async (
@@ -21,21 +26,41 @@ export const findOne = async (
   id: string,
   parameters?: any
 ) => {
-  const response = await strapiApi.get(
-    `${collection}/${id}?${qs.stringify(parameters)}`
-  );
-  return response.data?.data;
+  try {
+    const response = await strapiApi.get(
+      `${collection}/${id}?${qs.stringify(parameters)}`
+    );
+    return response.data?.data;
+  } catch (error) {
+    console.error(`Error fetching item: ${error}`);
+    throw error;
+  }
 };
 
 export const create = async (collection: string, data: any) => {
-  const response = await strapiApi.post(`${collection}`, data);
-  return response.data;
+  try {
+    const response = await strapiApi.post(`${collection}`, data);
+    return response.data;
+  } catch (error) {
+    console.error(`Error creating item: ${error}`);
+    throw error;
+  }
 };
 
 export const update = async (collection: string, id: string, data: any) => {
-  return await strapiApi.put(`${collection}/${id}`, data);
+  try {
+    return await strapiApi.put(`${collection}/${id}`, data);
+  } catch (error) {
+    console.error(`Error updating item: ${error}`);
+    throw error;
+  }
 };
 
 export const remove = async (collection: string, id: string) => {
-  return await strapiApi.delete(`${collection}/${id}`);
+  try {
+    return await strapiApi.delete(`${collection}/${id}`);
+  } catch (error) {
+    console.error(`Error deleting item: ${error}`);
+    throw error;
+  }
 };

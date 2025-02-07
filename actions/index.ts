@@ -2,7 +2,7 @@
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { registerUser as register, forgotPassword as forgot } from "@/lib/auth";
-import { update, remove } from "./strapi/services/client";
+import { createOrganisation } from "./strapi/api/organisations/create";
 import { redirect } from "next/navigation";
 
 export async function authenticate(
@@ -28,9 +28,8 @@ export const registerUser = async (
   prevState: string | undefined,
   formData: FormData
 ) => {
-  let id = null;
   const data = Object.fromEntries(formData);
-  const { username, email, password, noms } = data;
+  const { username, email, password } = data;
   if (!username || !email || !password) {
     return "Veuillez remplir tous les champs.";
   }
@@ -40,13 +39,11 @@ export const registerUser = async (
       email as string,
       password as string
     );
-    if (user) {
-      id = user.documentId;
-    }
   } catch (error) {
     console.log(error);
     return "Une erreur est survenue.";
   }
+
   redirect("/login");
 };
 

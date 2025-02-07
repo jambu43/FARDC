@@ -17,11 +17,9 @@ async function DashboardLayout({ children }: DashboardLayoutProps) {
         <>
             <Header />
             <main className='min-h-screen'>
-                <div className='flex'>
-                    <div className='w-[20%]'>
-                        <SideBar />
-                    </div>
-                    <div className='w-[80%]'>
+                <div className='grid grid-cols-[20%_80%] gap-4'>
+                    <SideBar />
+                    <div >
                         {children}
                     </div>
                 </div>

@@ -6,7 +6,8 @@ import {
     AlertCircle,
     EyeIcon,
     EyeOffIcon,
-    User
+    User,
+    Fingerprint
 } from 'lucide-react';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/components/ui/button';
@@ -34,7 +35,7 @@ export default function RegisterForm() {
                     </h1>
 
                     <p className="text-sm text-gray-500 text-center">
-                    Rejoignez-nous aujourd&apos;hui et devenez un acteur du changement — Inscrivez-vous pour faire entendre votre voix !
+                        Rejoignez-nous aujourd&apos;hui et devenez un acteur du changement — Inscrivez-vous pour faire entendre votre voix !
                     </p>
                 </div>
                 <div className="w-full">
@@ -57,7 +58,6 @@ export default function RegisterForm() {
                             <User className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
                         </div>
                     </div>
-
                     <div>
                         <label
                             className="mb-3 mt-5 block text-xs font-medium text-gray-900"

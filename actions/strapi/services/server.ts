@@ -14,7 +14,7 @@ export const getStrapiUser = async () => {
   const token = await getToken();
   try {
     const response = await axios.get(
-      `${process.env.API_URL}/users/me?populate=*`,
+      `${process.env.STRAPI_URL!}/users/me?populate=*`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -22,13 +22,13 @@ export const getStrapiUser = async () => {
       }
     );
     const user = response.data;
+
     return {
       id: user?.documentId,
       username: user?.username,
       email: user?.email,
       role: user?.role?.name,
-      names: user?.names,
-      phone: user?.phone,
+      organisation: user?.organization,
     };
   } catch (error) {
     console.error(`Error fetching user: ${error}`);
@@ -45,11 +45,14 @@ export const getStrapiUser = async () => {
 export const getCollection = async <T>(collection: string): Promise<T> => {
   const token = await getToken();
   try {
-    const response = await axios.get(`${process.env.API_URL}/${collection}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.get(
+      `${process.env.STRAPI_URL!}/${collection}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     return response?.data;
   } catch (error) {
@@ -71,7 +74,7 @@ export const getCollectionById = async <T>(
   const token = await getToken();
   try {
     const response = await axios.get(
-      `${process.env.API_URL}/${collection}/${id}?populate=*`,
+      `${process.env.STRAPI_URL!}/${collection}/${id}?populate=*`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -99,7 +102,7 @@ export const postCollection = async <T>(
   const token = await getToken();
   if (!token) throw new Error("No token found");
   try {
-    const response = await fetch(`${process.env.API_URL}/${collection}`, {
+    const response = await fetch(`${process.env.STRAPI_URL!}/${collection}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -138,14 +141,17 @@ export const putCollection = async <T>(
 ): Promise<T> => {
   const token = await getToken();
   try {
-    const response = await fetch(`${process.env.API_URL}/${collection}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${process.env.STRAPI_URL!}/${collection}/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      }
+    );
     const responseData = await response.json();
     console.log(responseData?.error);
     if (!response.ok) {
@@ -174,7 +180,7 @@ export const deleteCollection = async <T>(
   const token = await getToken();
   try {
     const response = await axios.delete(
-      `${process.env.API_URL}/${collection}/${id}`,
+      `${process.env.STRAPI_URL!}/${collection}/${id}`,
       {
         headers: {
           "Content-Type": "application/json",
