@@ -10,6 +10,7 @@ function Status({ role }: Props) {
     const icon = status === "active" ? <CheckCircleIcon className="h-5 w-5 text-green-500" /> : <XCircleIcon className="h-5 w-5 text-red-500" />;
 
     return (
+        // @ts-ignore
         <Badge variant={status === "active" ? "success" : "destructive"} className="flex items-center">
             {icon}
             <span className="ml-2">{status}</span>
