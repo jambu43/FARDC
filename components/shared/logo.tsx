@@ -3,7 +3,7 @@ import Image from "next/image"
 function Logo() {
     return (
         <div className="">
-            <Image src="/logo.png" alt="logo" width={200} height={150} />
+            <Image src="/logofadc.png" alt="logo" width={150} height={150} />
         </div>
     )
 }

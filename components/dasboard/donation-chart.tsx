@@ -39,7 +39,7 @@ export function DonationChart() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(value: number) => `${value}€`}
+          tickFormatter={(value: number) => `${value}$`}
         />
         <Bar dataKey="total" fill="rgb(18 143 210)" radius={[4, 4, 0, 0]} />
       </BarChart>

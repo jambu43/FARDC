@@ -26,7 +26,7 @@ export function CampaignStats({ campaignId }: { campaignId: string }) {
           <CardTitle className="text-sm font-medium">Don moyen</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{stats.averageDonation.toLocaleString("fr-FR")} €</div>
+          <div className="text-2xl font-bold">{stats.averageDonation.toLocaleString("fr-FR")} $</div>
         </CardContent>
       </Card>
       <Card>
@@ -34,7 +34,7 @@ export function CampaignStats({ campaignId }: { campaignId: string }) {
           <CardTitle className="text-sm font-medium">Don le plus important</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{stats.largestDonation.toLocaleString("fr-FR")} €</div>
+          <div className="text-2xl font-bold">{stats.largestDonation.toLocaleString("fr-FR")} $</div>
         </CardContent>
       </Card>
       <Card>

@@ -44,6 +44,14 @@ export default function Header() {
                                     href="/contact"
                                     className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
                                 >
+                                    Actualités
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/contact"
+                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
+                                >
                                     Contact
                                 </Link>
                             </li>
@@ -59,14 +67,14 @@ export default function Header() {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                     <ProfileButton />
                     <Button className="bg-primary">
                         <Link href={"/campagnes/create"}>
                             Créer une campagne
                         </Link>
                     </Button>
-                </div>
+                </div> */}
             </div>
             <Mobile />
 

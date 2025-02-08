@@ -26,7 +26,7 @@ export function CampaignsOverview() {
           <CardTitle className="text-sm font-medium">Total collecté</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">45 789 €</div>
+          <div className="text-2xl font-bold">45 789 $</div>
           <p className="text-xs text-muted-foreground">+20.1% depuis le mois dernier</p>
         </CardContent>
       </Card>

@@ -91,7 +91,7 @@ export default function CampagnesSection({ campaigns }: Props) {
         <section className="section border-t border-gray-200">
             <div className="container flex justify-between items-center mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold">
-                    Les <span className="text-blue-500">collectes</span> humanitaires
+                    Les <span className="text-secondary">collectes</span>
                 </h2>
                 <div className="flex gap-2">
                     <Button variant="outline" size="icon" className="rounded-full" onClick={scrollPrev}>

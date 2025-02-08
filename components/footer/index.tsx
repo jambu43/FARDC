@@ -161,7 +161,7 @@ export function Footer() {
               ))}
             </div>
 
-            <div className="text-sm text-zinc-400 order-last sm:order-none">© 2025 CCC</div>
+            <div className="text-sm text-zinc-400 order-last sm:order-none">© 2025 iconescrea</div>
           </div>
         </div>
       </div>

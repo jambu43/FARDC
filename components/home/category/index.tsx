@@ -20,46 +20,35 @@ interface Channel {
 
 const categories: Category[] = [
   { id: "education", name: "Enfance & Éduc." },
-  { id: "other", name: "Autres projets" },
-  { id: "sports", name: "Sports" },
-  { id: "art", name: "Art & Photo" },
   { id: "heritage", name: "Patrimoine" },
-  { id: "performance", name: "Spectacle vivant" },
-  { id: "games", name: "Jeux" },
-  { id: "music", name: "Musique" },
-  { id: "design", name: "Mode & Design" },
   { id: "health", name: "Santé & Bien-être" },
   { id: "cuisine", name: "Artisanat & Cuisine" },
   { id: "tech", name: "Technologie" },
   { id: "solidarity", name: "Solidaire & Citoyen" },
-  { id: "manga", name: "BD & Manga" },
-  { id: "commerce", name: "Lieux & Commerces" },
-  { id: "collections", name: "Collectes personelles" },
   { id: "media", name: "Édition & Média" },
-  { id: "video", name: "Film & vidéo" },
 ]
 
 const channels: Channel[] = [
   {
     id: "engie",
-    title: "Appel à projets Pamoja ",
-    selectedBy: "Sélectionné par Pamoja ",
+    title: "Soutenir les FARDC",
+    selectedBy: "Soutien",
     image:
-      "/photo-manif.png",
+      "/soutenir.jpeg",
     link: "#",
   },
   {
     id: "environment",
-    title: "Environnement",
+    title: "Soutenir les Familles des FARDC",
     selectedBy: "Sélectionné par Pamoja ",
-    image: "/imagtest1.jpg",
+    image: "/famille.jpeg",
     link: "#",
   },
   {
     id: "sport",
-    title: "Sport Planète",
+    title: "Soutenir les Déplacés de la FARDC",
     selectedBy: "Sélectionné par Pamoja ",
-    image: "/sport-Pamoja .webp",
+    image: "/deplaces.jpeg",
     link: "#",
   },
 ]
