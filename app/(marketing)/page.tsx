@@ -1,10 +1,9 @@
 import { Category } from "@/components/home/category";
 import Hero from "@/components/home/hero";
 import Campaign from "@/components/home/campagnes/campaign";
-import ProjectByCategory from "@/components/home/projectCategory/projectByCategory";
 import { Newsletter } from "@/components/newsletter";
-import { StatsSection } from "@/components/home/stats/stats-section";
 import Article from "@/components/home/articles/page";
+import InfoSection from "@/components/home/infos/info-section";
 
 
 export default function Home() {
@@ -14,8 +13,9 @@ export default function Home() {
       <Campaign />
       <Article />
       <Category />
-      <ProjectByCategory />
-      <StatsSection />
+      <InfoSection />
+      {/* <ProjectByCategory /> */}
+      {/* <StatsSection /> */}
       <Newsletter />s
     </>
   );
