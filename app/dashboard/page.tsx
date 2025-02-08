@@ -7,7 +7,9 @@ import { getStrapiUser } from "@/actions/strapi/services/server"
 import { getOrganisationUser } from "@/actions/strapi/api/organisations/find-one"
 import Indicateurs from "@/components/organisations/stats/indicateurs"
 
+
 export default async function DashboardPage() {
+
   const user = await getStrapiUser()
   const organisation = await getOrganisationUser()
   return (

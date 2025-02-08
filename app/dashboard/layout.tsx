@@ -2,9 +2,8 @@ import { ReactNode } from 'react'
 import { Footer } from '@/components/footer'
 import Header from '@/components/header'
 import SideBar from '@/components/sideBar'
-import { auth } from '@/auth'
-import { redirect } from 'next/navigation'
-
+import {auth} from "@/auth"
+import { redirect } from "next/navigation"
 
 type DashboardLayoutProps = {
     children: ReactNode
@@ -13,8 +12,7 @@ type DashboardLayoutProps = {
 async function DashboardLayout({ children }: DashboardLayoutProps) {
     const session = await auth()
     if (!session) redirect("/login")
-    else {
-        return (
+    return (
             <>
                 <Header />
                 <main className='min-h-screen'>
@@ -28,7 +26,7 @@ async function DashboardLayout({ children }: DashboardLayoutProps) {
                 <Footer />
             </>
         )
-    }
+
 
 
 }
