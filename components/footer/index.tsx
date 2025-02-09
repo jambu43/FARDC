@@ -31,7 +31,7 @@ export function Footer() {
       title: "Partenariats",
       links: [
         { label: "Devenir partenair", href: "#" },
-        { label: "Opérations des partenaires", href: "#" },
+        { label: "Liste de nos partenaires", href: "#" },
         { label: "Autorités locales", href: "#" },
       ],
     },
@@ -61,7 +61,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-zinc-950 text-white">
+    <footer className="w-full bg-white text-zinc-950">
       {/* Main footer content */}
       <div className="container px-4 py-8">
         {/* Top section with logo and social */}
@@ -70,7 +70,6 @@ export function Footer() {
             <Link href="/" className="flex items-center">
               <Logo/>
             </Link>
-            <p className="text-zinc-400 text-sm">Nous vous aidons à créer vos projets</p>
           </div>
 
           <div className="flex gap-4">
@@ -82,7 +81,7 @@ export function Footer() {
               { icon: Youtube, label: "YouTube" },
             ].map(({ icon: Icon, label }) => (
               <Link key={label} href="#" className="hover:text-zinc-400 transition-colors" aria-label={label}>
-                <Icon className="h-6 w-6" />
+                <Icon className="h-6 w-6 text-primary"/>
               </Link>
             ))}
           </div>
@@ -123,26 +122,10 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom section */}
-        <div className="border-t border-zinc-800 pt-8">
-          <div className="flex flex-col lg:flex-row justify-between items-stretch gap-6">
-            <div className="flex-1 text-sm text-zinc-400 bg-zinc-800 space-y-2 p-5 rounded-md">
-              <p className="text-sm">
-                GOMA TU SAYIDIYE est une plateforme de crowdfunding
-              </p>
-              <p className="text-sm">
-                Adresse : 10 rue de Penthièvre 75008 Paris. Email : contact@GOMA TU SAYIDIYE.com
-              </p>
-            </div>
-            <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-zinc-800 space-y-2 p-5 rounded-md">
-              <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement ...</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Legal footer */}
-      <div className="border-t border-zinc-800">
+      <div className="border-t border-primary">
         <div className="container px-4 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
             {/* <select

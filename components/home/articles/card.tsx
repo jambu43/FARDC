@@ -1,6 +1,4 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -19,7 +17,7 @@ function Card({ title, description, image, slug }: ItemProps) {
         <Image
           src={image}
           alt={title}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
           fill
         />
         <span className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium">
@@ -27,15 +25,15 @@ function Card({ title, description, image, slug }: ItemProps) {
         </span>
       </div>
 
-      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+      <h3 className="text-md font-bold mb-2 group-hover:text-primary transition-colors">
         {title}
       </h3>
 
-      <p className="text-gray-600 mb-4 text-sm md:text-base">
+      <p className="text-gray-600 mb-4 text-sm md:text-sm line-clamp-4">
         {description}
       </p>
 
-      <button className="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+      <Link href={slug} className="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors text-sm">
         Lire la suite
         <svg
           className="w-4 h-4 ml-1"
@@ -46,7 +44,7 @@ function Card({ title, description, image, slug }: ItemProps) {
         >
           <path d="M5 12h14m-7-7l7 7-7 7" />
         </svg>
-      </button>
+      </Link>
     </article>
   );
 }

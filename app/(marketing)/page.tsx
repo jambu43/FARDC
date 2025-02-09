@@ -4,6 +4,7 @@ import Campaign from "@/components/home/campagnes/campaign";
 import { Newsletter } from "@/components/newsletter";
 import Article from "@/components/home/articles/page";
 import InfoSection from "@/components/home/infos/info-section";
+import HowItWorks from "@/components/home/video/how-it-works";
 
 
 export default function Home() {
@@ -14,9 +15,10 @@ export default function Home() {
       <Article />
       <Category />
       <InfoSection />
+      <HowItWorks />
       {/* <ProjectByCategory /> */}
       {/* <StatsSection /> */}
-      <Newsletter />s
+      <Newsletter />
     </>
   );
 }
