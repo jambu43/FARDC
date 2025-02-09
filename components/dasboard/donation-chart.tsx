@@ -2,34 +2,18 @@
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
-const data = [
-  {
-    name: "Jan",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Fév",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Mar",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Avr",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Mai",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-  {
-    name: "Juin",
-    total: Math.floor(Math.random() * 5000) + 1000,
-  },
-]
 
-export function DonationChart() {
+
+type DonationChartProps = {
+  data: {
+    name: string
+    total: number
+  }[]
+}
+
+
+
+export function DonationChart({data}:DonationChartProps) {
   return (
     <ResponsiveContainer width="100%" height={350}>
       <BarChart data={data}>
@@ -39,7 +23,7 @@ export function DonationChart() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(value: number) => `${value}€`}
+          tickFormatter={(value: number) => `${value}${value > 1000 ? "k" : ""}$`}
         />
         <Bar dataKey="total" fill="rgb(18 143 210)" radius={[4, 4, 0, 0]} />
       </BarChart>
