@@ -1,6 +1,5 @@
-import { Heart, Eye } from "lucide-react"
+import { Heart } from "lucide-react"
 import { Progress } from "@/components/ui/progress"
-import type { Campaign } from "@/types/campaign"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -16,10 +15,10 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
     return (
         <div className="cursor-pointer">
             <Link href={`/campagnes/${campaign?.id}`} passHref legacyBehavior className="cursor-pointer">
-                <div className="relative bg-white flex flex-col justify-between rounded-lg overflow-hidden border h-full ">
+                <div className="relative bg-white flex flex-col justify-between rounded-lg overflow-hidden h-full">
 
-                    <div className="relative aspect-[16/9] min-h-[200px] md:min-h-[400px] ">
-                        <Image src={campaign?.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <div className="relative aspect-[16/9] h-[200px] md:h-[200px] ">
+                        <Image src={campaign?.featuredImage || "/placeholder.svg"} width={300} height={300} alt={campaign.title} className="w-full h-[200px] object-cover transition-transform duration-300 group-hover:scale-105" />
                         <button
                             className="absolute top-4 right-4 p-3 rounded-full bg-white/80 hover:bg-white transition-colors"
                             aria-label="Add to favorites"
@@ -29,8 +28,8 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
                     </div>
 
                     <div className="p-6 ">
-                        <h3 className="font-bold mb-6 text-md text-primary line-clamp-2">{campaign.title}</h3>
-                        <p className="text-gray-600 text-normal mb-6 text-sm line-clamp-2">{campaign.description}</p>
+                        <h3 className="mb-2 font-bold text-[12px] text-black line-clamp-2">{campaign.title}</h3>
+                        {/* <p className="text-gray-600  mb-6 text-sm line-clamp-1">{campaign.description}</p> */}
 
                         <div className="flex justify-between items-center mb-4">
                             <div>

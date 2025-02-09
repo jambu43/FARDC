@@ -44,8 +44,8 @@ async function CampagneDetails({ params }: Props) {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-4 py-8">
-        <div className="p-6 md:p-8 space-y-4">
-          <h1 className="text-2xl md:text-xl font-bold text-center">
+        <div className="p-6 md:p-8 space-y-4 mb-8">
+          <h1 className="text-2xl md:text-xl font-bold text-center mb-5">
             {campaign.title}
           </h1>
           <p className="text-center text-zinc-600 font-md">
