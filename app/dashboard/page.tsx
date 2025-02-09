@@ -13,7 +13,7 @@ export default async function DashboardPage() {
   const user = await getStrapiUser()
   const organisation = await getOrganisationUser()
   return (
-    <div className="flex-1 space-y-4  section">
+    <div className="flex-1 space-y-4 p-8 pt-6  ">
 
       <Onboarding organisation={organisation} userId={user?.id} />
       <div className="flex items-center justify-between space-y-2">

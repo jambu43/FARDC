@@ -1,34 +1,41 @@
-import { ReactNode } from 'react'
-import { Footer } from '@/components/footer'
-import Header from '@/components/header'
-import SideBar from '@/components/sideBar'
-import {auth} from "@/auth"
-import { redirect } from "next/navigation"
+import { ReactNode } from "react"
+import { AppSidebar } from "@/components/app-sidebar"
+import { Separator } from "@/components/ui/separator"
+import {
+    SidebarInset,
+    SidebarProvider,
+    SidebarTrigger,
+} from "@/components/ui/sidebar"
+import { getStrapiUser } from "@/actions/strapi/services/server"
 
-type DashboardLayoutProps = {
+
+type LayoutProps = {
     children: ReactNode
 }
 
-async function DashboardLayout({ children }: DashboardLayoutProps) {
-    const session = await auth()
-    if (!session) redirect("/login")
+
+export default async function DashboardLayout({
+                                                  children,
+                                              }: LayoutProps) {
+
+    const user = await getStrapiUser()
     return (
-            <>
-                <Header />
-                <main className='min-h-screen'>
-                    <div className='grid grid-cols-[20%_80%] gap-4'>
-                        <SideBar />
-                        <div >
-                            {children}
+
+            <SidebarProvider>
+                <AppSidebar user={user} />
+                <SidebarInset>
+                    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+                        <div className="flex items-center gap-2 px-4">
+                            <SidebarTrigger className="-ml-1" />
+                            <Separator orientation="vertical" className="mr-2 h-4" />
+
                         </div>
+                    </header>
+                    <div className="container">
+                        {children}
                     </div>
-                </main>
-                <Footer />
-            </>
-        )
+                </SidebarInset>
+            </SidebarProvider>
 
-
-
+    )
 }
-
-export default DashboardLayout

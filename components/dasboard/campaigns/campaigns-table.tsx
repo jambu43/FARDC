@@ -57,7 +57,7 @@ const data: Campaign[] = [
     raised: 45600,
     daysLeft: 45,
   },
-  // Ajoutez d'autres campagnes ici...
+  // Ajoutez d'autres campaigns ici...
 ]
 
 export type Campaign = {
