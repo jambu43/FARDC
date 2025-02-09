@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { Share2, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,12 +6,32 @@ import { CampagneTabs } from "@/components/campagnes/tab";
 import { getCampaign } from "@/actions/strapi/api/campaigns/find-one";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { TrendingUp } from "lucide-react";
+import { Avatar } from "@/components/ui/avatar";
 
 type Props = {
   params: Promise<{
     id: string;
   }>;
 };
+
+interface Donor {
+  name: string;
+  amount: number;
+  type: "recent" | "highest" | "first";
+  timestamp: string;
+}
+
+const donors: Donor[] = [
+  { name: "Kitty Mussa", amount: 5, type: "recent", timestamp: "Don récent" },
+  {
+    name: "David Hirst",
+    amount: 5000,
+    type: "highest",
+    timestamp: "Don le plus élevé",
+  },
+  { name: "David Hirst", amount: 20, type: "first", timestamp: "Premier don" },
+];
 
 async function CampagneDetails({ params }: Props) {
   const { id } = await params;
@@ -24,107 +43,154 @@ async function CampagneDetails({ params }: Props) {
   }
   return (
     <div>
-      <div className="bg-secondary pb-8 h-[30rem] "></div>
-      <section className="container -mt-[25rem] py-8 px-4">
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="p-6 md:p-8 space-y-4">
+          <h1 className="text-2xl md:text-xl font-bold text-center">
+            {campaign.title}
+          </h1>
+          <p className="text-center text-zinc-600 font-md">
+            {campaign.description}
+          </p>
+        </div>
 
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-
-          <div className="p-6 md:p-8 space-y-4">
-            <h1 className="text-2xl md:text-xl font-bold text-center">
-              {campaign.title}
-            </h1>
-            <p className="text-center text-zinc-600 font-md">
-              {campaign.description}
-            </p>
-          </div>
-
-          {/* Two Column Layout */}
-          <div className="flex flex-col md:flex-row">
-            {/* Main Image Column - 60% */}
-            <div className="md:w-[60%]  p-6 md:p-8">
+        <div className="grid gap-8 md:grid-cols-[2fr,1fr]">
+          {/* Left Column - Photos */}
+          <div className="space-y-6">
+            <div className="relative overflow-hidden rounded-xl border-4 border-yellow-400">
               <div className="relative aspect-[16/9] md:aspect-[4/3] h-full">
                 <Image
                   src={campaign?.featuredImage || "/guerre.jpg"}
                   alt=""
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                   priority
                 />
               </div>
             </div>
 
-            {/* Stats and Action Column - 40% */}
-            <div className="md:w-[40%] p-6 md:p-8">
-              {/* Project Info */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-zinc-100 rounded-full" />
-                  <div>
-                    <h2 className="font-semibold">{campaign.organization}</h2>
-                    <div className="flex gap-2 text-sm text-zinc-600">
-                      {
-                        campaign?.categories.map((category: string) => (
-                          <div key={category} className="flex items-center flex-wrap">
+            <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1.5 text-sm text-green-700">
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Don
+            </div>
+          </div>
+
+          {/* Right Column - Donation Info */}
+          <div className="space-y-4">
+            <div className="rounded-lg border bg-white p-6 shadow-xl">
+              <div className="mb-4">
+                <div className="flex items-baseline justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-zinc-100 rounded-full" />
+                    <div>
+                      <h2 className="font-semibold">{campaign.organization}</h2>
+                      <div className="flex gap-2 text-sm text-zinc-600">
+                        {campaign?.categories.map((category: string) => (
+                          <div
+                            key={category}
+                            className="flex items-center flex-wrap"
+                          >
                             <span className="text-zinc-600 mr-2">•</span>
                             <span key={category}>{category}</span>
                           </div>
-                        ))
-                      }
-
+                        ))}
+                      </div>
                     </div>
                   </div>
+                </div>
+                {/* Stats */}
+                <div className="space-y-6 mt-6">
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold">
+                          {campaign.amountCollected}$
+                        </span>
+                        <span className="text-sm text-zinc-600">
+                          collectés sur{" "}
+                          <span className="font-bold text-primary text-2xl">
+                            {campaign.goal}$
+                          </span>
+                        </span>
+                      </div>
+                      <Progress value={campaign.progress} className="h-2" />
+                      <span className="text-sm font-medium text-emerald-600">
+                        {campaign.progress}%
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <span className="text-2xl font-bold">
+                          {campaign.contributions}
+                        </span>
+                        <span className="text-sm text-zinc-600 block">
+                          contribution(s)
+                        </span>
+                      </div>
+                      <div className="space-y-1">
+                        <span className="text-2xl font-bold">
+                          {campaign.daysLeft}
+                        </span>
+                        <span className="text-sm text-zinc-600 block">
+                          jours restants
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-center text-sm text-zinc-600">
+                    <Button variant="link" className="h-auto p-0">
+                      Paiement sécurisé et sans engagement
+                    </Button>
+                  </p>
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="space-y-6 mt-6">
-                <div className="space-y-4">
-                  <div className="space-y-1">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-bold">{campaign.amountCollected}$</span>
-                      <span className="text-sm text-zinc-600">
-                        collectés sur <span className="font-bold text-primary text-2xl">{campaign.goal}$</span>
-                      </span>
-                    </div>
-                    <Progress value={campaign.progress} className="h-2" />
-                    <span className="text-sm font-medium text-emerald-600">
-                      {campaign.progress}%
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <span className="text-2xl font-bold">{campaign.contributions}</span>
-                      <span className="text-sm text-zinc-600 block">
-                        contribution(s)
-                      </span>
-                    </div>
-                    <div className="space-y-1">
-                      <span className="text-2xl font-bold">{campaign.daysLeft}</span>
-                      <span className="text-sm text-zinc-600 block">
-                        jours restants
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Link href={`/campagnes/donations/${campaign.id}`}>
-                    <Button className="w-full bg-primary hover:bg-[#1994E6] text-white py-8">
-                      <span className="flex flex-col">
-                        <span className="text-lg font-bold">CONTRIBUER</span>
-                        <span className="text-sm font-normal">À partir de 1 $</span>
-                      </span>
-                    </Button>
-                  </Link>
-                </div>
-
-
-
-                <p className="text-center text-sm text-zinc-600">
-                  <Button variant="link" className="h-auto p-0">
-                    Paiement sécurisé et sans engagement
+              <div className="space-y-3">
+                <Link href={`/campagnes/donations/${campaign.id}`}>
+                  <Button className="w-full bg-primary hover:bg-secondary text-white">
+                    Je soutiens / À partir de 1 $
                   </Button>
-                </p>
+                </Link>
+
+                <div></div>
+              </div>
+
+              <div className="mt-6">
+                <div className="mb-4 flex items-center gap-2 rounded-lg bg-purple-50 p-3">
+                  <TrendingUp className="h-5 w-5 text-purple-600" />
+                  <span className="font-medium text-purple-900">
+                    765 personnes viennent de faire un don.
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  {donors.map((donor, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-8 w-8">
+                          <Image
+                            src="/guerre.jpg"
+                            alt={donor.name}
+                            width={150}
+                            height={150}
+                          />
+                        </Avatar>
+                        <div>
+                          <p className="font-medium">{donor.name}</p>
+                          <p className="text-sm text-gray-600">
+                            {donor.amount} $ · {donor.timestamp}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 {/* Social Actions */}
                 <div className="flex justify-end gap-4 mt-6">
@@ -145,7 +211,8 @@ async function CampagneDetails({ params }: Props) {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
       <section>
         <CampagneTabs />
       </section>

@@ -33,11 +33,11 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
     if (!campaign) return null
 
     return (
-        <div>
+        <div className="cursor-pointe">
             <Link href={`/campagnes/${campaign.id}`} passHref legacyBehavior className="cursor-pointer">
-                <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden border">
+                <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden border cursor-pointer">
                     <div className="relative aspect-[16/9] h-1/2">
-                        <Image src={campaign.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover" />
+                        <Image src={campaign.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                         <button
                             className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
                             aria-label="Add to favorites"
@@ -74,7 +74,6 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
                     </div>
                 </div>
             </Link>
-
         </div>
 
     )

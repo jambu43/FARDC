@@ -14,12 +14,12 @@ export function FeaturedCampaignCard({ campaign }: FeaturedCampaignCardProps) {
     if (!campaign) return null
 
     return (
-        <div>
+        <div className="cursor-pointer">
             <Link href={`/campagnes/${campaign?.id}`} passHref legacyBehavior className="cursor-pointer">
                 <div className="relative bg-white flex flex-col justify-between rounded-lg overflow-hidden border h-full ">
 
                     <div className="relative aspect-[16/9] min-h-[200px] md:min-h-[400px] ">
-                        <Image src={campaign?.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover" />
+                        <Image src={campaign?.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                         <button
                             className="absolute top-4 right-4 p-3 rounded-full bg-white/80 hover:bg-white transition-colors"
                             aria-label="Add to favorites"
