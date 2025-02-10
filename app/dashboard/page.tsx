@@ -6,12 +6,18 @@ import Onboarding from "@/components/organisations/onboarding"
 import { getStrapiUser } from "@/actions/strapi/services/server"
 import { getOrganisationUser } from "@/actions/strapi/api/organisations/find-one"
 import Indicateurs from "@/components/organisations/stats/indicateurs"
+import {getDonations,getDonationSumAmountByMonth} from "@/actions/strapi/api/donations/find";
+
 
 export default async function DashboardPage() {
+
   const user = await getStrapiUser()
   const organisation = await getOrganisationUser()
+  const donationsCharts = await getDonationSumAmountByMonth()
+  const donations = await getDonations()
   return (
-    <div className="flex-1 space-y-4  section">
+    <div className="flex-1 space-y-4 p-8 pt-6  ">
+
 
       <Onboarding organisation={organisation} userId={user?.id} />
       <div className="flex items-center justify-between space-y-2">
@@ -26,10 +32,10 @@ export default async function DashboardPage() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="col-span-4">
               <CardHeader>
-                <CardTitle>Aperçu des donations</CardTitle>
+                <CardTitle className={'text-primary'}>Aperçu des donations</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
-                <DonationChart />
+                <DonationChart data={donationsCharts} />
               </CardContent>
             </Card>
             <Card className="col-span-3">
@@ -37,7 +43,7 @@ export default async function DashboardPage() {
                 <CardTitle>Donations récentes</CardTitle>
               </CardHeader>
               <CardContent>
-                <RecentDonations />
+                <RecentDonations recentDonations={donations} />
               </CardContent>
             </Card>
           </div>

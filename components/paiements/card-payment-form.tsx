@@ -51,7 +51,7 @@ export function FormulairePaiementCarte({ onSuccess, chargement }: FormulairePai
                     <Input id="cvv" placeholder="123" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
                 </div>
             </div>
-            <Button type="submit" className="w-full" disabled={chargement}>
+            <Button type="submit" className="w-full bg-primary" disabled={chargement}>
                 {chargement ? "Paiement en cours..." : "Payer avec Carte"}
             </Button>
         </form>

@@ -18,17 +18,17 @@ const navStructure = [
     id: "Campagnes",
     name: "Campagnes",
     icon: "Briefcase",
-    path: "/campagnes",
+    path: "/campaigns",
     items: [
       {
-        id: "campagnes",
+        id: "campaigns",
         name: "Toutes les Campagnes",
-        path: "/dashboard/organisations/campagnes/list",
+        path: "/dashboard/organisations/campaigns/list",
       },
       {
-        id: "create-campagnes",
+        id: "create-campaigns",
         name: "Créer Campagnes",
-        path: "/dashboard/organisations/campagnes/create",
+        path: "/dashboard/organisations/campaigns/create",
       },
     ],
   },
@@ -36,12 +36,12 @@ const navStructure = [
     id: "donateurs",
     name: "Donateurs",
     icon: "Users",
-    path: "/dashboard/organisations/donors/list",
+    path: "/dashboard/organisations/donateurs/list",
     items: [
       {
         id: "team-members",
         name: "Liste de donateurs",
-        path: "/dashboard/organisations/donors/list",
+        path: "/dashboard/organisations/donateurs/list",
       },
     ],
   },

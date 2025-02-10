@@ -7,11 +7,43 @@ import { Input } from "@/components/ui/input"
 import Logo from "../shared/logo"
 import ProfileButton from "../shared/profile"
 import Mobile from "./mobile"
+import {auth} from "@/auth"
+
+const MarketingMenu = [
+    {
+        label: "Accueil",
+        href: "/",
+    },
+    {
+        label: "Campagnes",
+        href: "/campaigns",
+    },
+    {
+        label: "Contact",
+        href: "/contact",
+    }
+]
+
+const DashboardMenu = [
+    {
+        label: "Accueil",
+        href: "/dashboard/home",
+    },
+    {
+        label: "Campagnes",
+        href: "/dashboard/campaigns",
+    },
+    {
+        label: "Contact",
+        href: "/dashboard/contact",
+    }
+]
 
 
-export default function Header() {
+export default async  function Header() {
 
-
+const session = await auth()
+    const Menu = session ? DashboardMenu : MarketingMenu
 
     return (
         <header className="border-b shadow">
@@ -23,30 +55,19 @@ export default function Header() {
                     </Link>
                     <nav>
                         <ul className="flex items-center gap-8">
-                            <li>
-                                <Link
-                                    href="/"
-                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
-                                >
-                                    Accueil
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/campagnes"
-                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
-                                >
-                                    Campagnes
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/contact"
-                                    className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
+                            {
+                                Menu.map((item) => (
+                                    <li key={item.href}>
+                                        <Link
+                                            href={item.href}
+                                            className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+
                         </ul>
                     </nav>
 

@@ -52,5 +52,5 @@ export const createCampaign = async (
       error: "Une erreur est survenue.",
     };
   }
-  if (id) redirect(`/campagnes/${id}`);
+  if (id) redirect(`/dashboard/campagnes/${id}`);
 };
