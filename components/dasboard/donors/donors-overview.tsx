@@ -26,7 +26,7 @@ export function DonorsOverview() {
           <CardTitle className="text-sm font-medium">Don moyen</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">75 €</div>
+          <div className="text-2xl font-bold">75 $</div>
           <p className="text-xs text-muted-foreground">+3% depuis le mois dernier</p>
         </CardContent>
       </Card>

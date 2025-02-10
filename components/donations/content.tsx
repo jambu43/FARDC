@@ -77,6 +77,19 @@ function DonationsDetails({ campagne }: Props) {
                                 >
                                     Montant
                                 </label>
+                                {/* Ajout des boutons de montants prédéfinis */}
+                                <div className="flex gap-2 mb-3">
+                                    {[50, 100, 200, 500].map((preset) => (
+                                        <Button
+                                            key={preset}
+                                            variant="outline"
+                                            onClick={() => setAmount(preset)}
+                                            className={`flex-1 ${amount === preset ? 'bg-primary text-white' : ''}`}
+                                        >
+                                            {preset}$
+                                        </Button>
+                                    ))}
+                                </div>
                                 <div className="relative">
                                     <input
                                         className="peer block w-full rounded-md border border-gray-200 py-[13px] pl-10 text-sm outline-2 placeholder:text-gray-500"

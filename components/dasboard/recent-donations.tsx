@@ -13,7 +13,7 @@ export function RecentDonations() {
             <p className="text-sm font-medium leading-none">{donation.name}</p>
             <p className="text-sm text-muted-foreground">{donation.email}</p>
           </div>
-          <div className="ml-auto font-medium">{donation.amount}€</div>
+          <div className="ml-auto font-medium">{donation.amount}$</div>
         </div>
       ))}
     </div>

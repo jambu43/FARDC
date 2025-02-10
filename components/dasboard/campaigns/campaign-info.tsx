@@ -32,8 +32,8 @@ export function CampaignInfo({ campaignId }: { campaignId: string }) {
           <h3 className="text-lg font-semibold mb-2">Progression</h3>
           <Progress value={progress} className="h-2" />
           <div className="flex justify-between text-sm text-muted-foreground mt-2">
-            <span>{campaign.raised.toLocaleString("fr-FR")} € collectés</span>
-            <span>{campaign.goal.toLocaleString("fr-FR")} € objectif</span>
+            <span>{campaign.raised.toLocaleString("fr-FR")} $ collectés</span>
+            <span>{campaign.goal.toLocaleString("fr-FR")} $ objectif</span>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
