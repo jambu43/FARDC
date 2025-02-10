@@ -25,3 +25,16 @@ export const percentage = (a: number, b: number) => {
   const percentage = Math.round((a / b) * 100);
   return percentage;
 };
+export const largestValueInArray = (array: number[]) => {
+  if (array.length === 0) return 0;
+  return array.reduce((largest, current) => (current > largest ? current : largest), 0);
+};
+export const averageValueInArray = (array: number[]) => {
+  if (array.length === 0) return 0;
+  return array.reduce((a, b) => a + b, 0) / array.length;
+};
+
+export const sumValueInArray = (array: number[]) => {
+  return array.reduce((a, b) => a + b, 0);
+};
+

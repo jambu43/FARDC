@@ -15,14 +15,8 @@ import {
 } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
 
-// Simulons des données de donateurs pour cet exemple
-const getCampaignDonors = (id: string) => [
-  { id: id, name: "Alice Dubois", email: "alice@example.com", amount: 100, date: "2023-06-10" },
-  { id: id, name: "Thomas Martin", email: "thomas@example.com", amount: 250, date: "2023-06-09" },
-  { id: id, name: "Sophie Lefebvre", email: "sophie@example.com", amount: 50, date: "2023-06-08" },
-  { id: id, name: "Lucas Bernard", email: "lucas@example.com", amount: 500, date: "2023-06-07" },
-  { id: id, name: "Emma Petit", email: "emma@example.com", amount: 75, date: "2023-06-06" },
-]
+
+
 
 type Donor = {
   id: string
@@ -48,9 +42,9 @@ const columns: ColumnDef<Donor>[] = [
       const amount = Number.parseFloat(row.getValue("amount"))
       const formatted = new Intl.NumberFormat("fr-FR", {
         style: "currency",
-        currency: "EUR",
+        currency: "USD",
       }).format(amount)
-      return <div className="text-right font-medium">{formatted}</div>
+      return <div className="text-center font-medium">{formatted}</div>
     },
   },
   {
@@ -62,10 +56,18 @@ const columns: ColumnDef<Donor>[] = [
   },
 ]
 
-export function CampaignDonors({ campaignId }: { campaignId: string }) {
+export function CampaignDonors({ campaign}: { campaign: any }) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
-  const donors = getCampaignDonors(campaignId)
+  const donors = campaign.donations?.map((donation: any) => {
+    return {
+      id: donation.id,
+      name: donation.noms,
+      email: donation.email,
+      amount: donation.amount,
+      date: donation.date,
+    }
+  })  || []
 
   const table = useReactTable({
     data: donors,
@@ -96,12 +98,12 @@ export function CampaignDonors({ campaignId }: { campaignId: string }) {
             className="max-w-sm"
           />
         </div>
-        <Table>
-          <TableHeader>
+        <Table className={'border rounded-md'}>
+          <TableHeader className={'bg-primary rounded-t-md'}>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className={'text-white'}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
