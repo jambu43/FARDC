@@ -19,7 +19,7 @@ async function DonationsDetailsPage({ params }: Props) {
 
 
   return (
-    <div className="container">
+    <div className="container section">
       <DonationsDetails campagne={campaign} />
     </div>
   );

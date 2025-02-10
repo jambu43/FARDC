@@ -1,9 +1,4 @@
-import {
-  ChartNoAxesCombinedIcon,
-
-  Users2,
- Briefcase
-} from "lucide-react";
+import { ChartNoAxesCombinedIcon, Users2, Briefcase } from "lucide-react";
 export const MOBILE_MENU = [
   {
     label: "Créer une campagne",
@@ -31,7 +26,6 @@ export const MOBILE_MENU = [
   },
 ];
 
-
 export const adminMenu = [
   {
     title: "Campagnes",
@@ -56,7 +50,7 @@ export const adminMenu = [
     items: [
       {
         title: "Liste de donateurs",
-        url: "/dashboard/formulaires/baseline-surveys",
+        url: "/dashboard/donateurs",
       },
     ],
   },
@@ -70,7 +64,6 @@ export const adminMenu = [
         title: "Rapports Globaux",
         url: "/dashboard/rapports/globaux",
       },
-
     ],
   },
 ];
