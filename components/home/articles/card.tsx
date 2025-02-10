@@ -25,11 +25,11 @@ function Card({ title, description, image, slug }: ItemProps) {
         </span>
       </div>
 
-      <h3 className="text-md font-bold mb-2 group-hover:text-primary transition-colors">
+      <h3 className="text-sm font-bold mb-2 group-hover:text-primary transition-colors">
         {title}
       </h3>
 
-      <p className="text-gray-600 mb-4 text-sm md:text-sm line-clamp-4">
+      <p className="text-gray-600 mb-4 text-sm md:text-sm line-clamp-2">
         {description}
       </p>
 

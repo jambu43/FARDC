@@ -41,7 +41,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <Link
-                                    href="/contact"
+                                    href="/actualites"
                                     className="text-sm  text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     Actualités
