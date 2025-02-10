@@ -30,7 +30,7 @@ export function Newsletter() {
               Rejoignez la communauté !
             </h2>
             <p className="text-zinc-600 text-xs">
-              Abonnez-vous pour recevoir chaque semaine le meilleur de dans
+              Abonnez-vous pour recevoir chaque semaine le meilleur des dans
               votre boite.
             </p>
           </div>

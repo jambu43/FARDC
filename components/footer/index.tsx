@@ -30,13 +30,13 @@ export function Footer() {
     {
       title: "Partenariats",
       links: [
-        { label: "Devenir partenair", href: "#" },
+        { label: "Devenir partenaire", href: "#" },
         { label: "Opérations des partenaires", href: "#" },
         { label: "Autorités locales", href: "#" },
       ],
     },
     {
-      title: "A props",
+      title: "Apropos",
       links: [
         { label: "Nos services", href: "#" },
         { label: "Nos valeurs", href: "#" },
@@ -128,14 +128,14 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-stretch gap-6">
             <div className="flex-1 text-sm text-zinc-400 bg-zinc-800 space-y-2 p-5 rounded-md">
               <p className="text-sm">
-                GOMA TU SAYIDIYE est une plateforme de crowdfunding
+                Pamoja est une plateforme de crowdfunding
               </p>
               <p className="text-sm">
-                Adresse : 10 rue de Penthièvre 75008 Paris. Email : contact@GOMA TU SAYIDIYE.com
+                Adresse : 10 boulevard 75005, kinshasa. Email : contact@pamoja.com
               </p>
             </div>
             <div className="flex-1 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-zinc-800 space-y-2 p-5 rounded-md">
-              <span className="text-sm text-zinc-400">Paiements sécurisés avec les services de paiement ...</span>
+              <span className="text-sm text-zinc-400">Les Dons sécurisés avec les services de paiement ...</span>
             </div>
           </div>
         </div>
