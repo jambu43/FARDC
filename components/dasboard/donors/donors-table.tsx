@@ -29,33 +29,7 @@ import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import Link from "next/link"
 
-const data: Donor[] = [
-  {
-    id: "DON001",
-    name: "Alice Dubois",
-    email: "alice.dubois@example.com",
-    totalDonated: 450,
-    lastDonation: "2023-05-15",
-    campaigns: 3,
-  },
-  {
-    id: "DON002",
-    name: "Thomas Martin",
-    email: "thomas.martin@example.com",
-    totalDonated: 1200,
-    lastDonation: "2023-06-02",
-    campaigns: 5,
-  },
-  {
-    id: "DON003",
-    name: "Sophie Lefebvre",
-    email: "sophie.lefebvre@example.com",
-    totalDonated: 75,
-    lastDonation: "2023-06-10",
-    campaigns: 1,
-  },
-  // Ajoutez d'autres donateurs ici...
-]
+
 
 export type Donor = {
   id: string
@@ -91,19 +65,18 @@ export const columns: ColumnDef<Donor>[] = [
       const amount = Number.parseFloat(row.getValue("totalDonated"))
       const formatted = new Intl.NumberFormat("fr-FR", {
         style: "currency",
-        currency: "EUR",
+        currency: "USD",
       }).format(amount)
 
-      return <div className="text-right font-medium">{formatted}</div>
+      return <div className="text-center font-medium">{formatted}</div>
     },
   },
   {
     accessorKey: "lastDonation",
     header: "Dernier don",
     cell: ({ row }) => {
-      const date = new Date(row.getValue("lastDonation"))
-      const formatted = new Intl.DateTimeFormat("fr-FR").format(date)
-      return <div>{formatted}</div>
+
+      return <div>{row.getValue("lastDonation")}</div>
     },
   },
   {
@@ -116,7 +89,7 @@ export const columns: ColumnDef<Donor>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const donor = row.original
-      
+
 
       return (
         <DropdownMenu>
@@ -130,7 +103,7 @@ export const columns: ColumnDef<Donor>[] = [
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={`/dashboard/organisation/donors/${donor.id}`}>
+              <Link href={`/dashboard/donateurs/${donor.id}`}>
                 Voir l&apos;historique des dons
               </Link>
             </DropdownMenuItem>
@@ -141,7 +114,11 @@ export const columns: ColumnDef<Donor>[] = [
   },
 ]
 
-export function DonorsTable() {
+type Props = {
+  data: any
+}
+
+export function DonorsTable({ data }: Props) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
@@ -202,12 +179,12 @@ export function DonorsTable() {
       </div>
       <div className="rounded-md border">
         <Table>
-          <TableHeader>
+          <TableHeader className="bg-primary">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="text-white">
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   )

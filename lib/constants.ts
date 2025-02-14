@@ -1,11 +1,12 @@
+import { ChartNoAxesCombinedIcon, Users2, Briefcase } from "lucide-react";
 export const MOBILE_MENU = [
   {
     label: "Créer une campagne",
-    href: "/campagnes/create",
+    href: "/campaigns/create",
   },
   {
-    label: "Découvrir nos campagnes",
-    href: "/campagnes",
+    label: "Découvrir nos campaigns",
+    href: "/campaigns",
   },
   {
     label: "Connexion",
@@ -22,5 +23,47 @@ export const MOBILE_MENU = [
   {
     label: "Contact",
     href: "/contact",
+  },
+];
+
+export const adminMenu = [
+  {
+    title: "Campagnes",
+    url: "#",
+    icon: Briefcase,
+    isActive: true,
+    items: [
+      {
+        title: "Créer une campagne",
+        url: "/dashboard/campagnes/create",
+      },
+      {
+        title: "Mes campagnes",
+        url: "/dashboard/campagnes",
+      },
+    ],
+  },
+  {
+    title: "Donateurs",
+    url: "#",
+    icon: Users2,
+    items: [
+      {
+        title: "Liste de donateurs",
+        url: "/dashboard/donateurs",
+      },
+    ],
+  },
+
+  {
+    title: "Rapports",
+    url: "#",
+    icon: ChartNoAxesCombinedIcon,
+    items: [
+      {
+        title: "Rapports Globaux",
+        url: "/dashboard/rapports/globaux",
+      },
+    ],
   },
 ];

@@ -30,13 +30,13 @@ export function Footer() {
     {
       title: "Partenariats",
       links: [
-        { label: "Devenir partenair", href: "#" },
-        { label: "Liste de nos partenaires", href: "#" },
+        { label: "Devenir partenaire", href: "#" },
+        { label: "Opérations des partenaires", href: "#" },
         { label: "Autorités locales", href: "#" },
       ],
     },
     {
-      title: "A props",
+      title: "Apropos",
       links: [
         { label: "Nos services", href: "#" },
         { label: "Nos valeurs", href: "#" },

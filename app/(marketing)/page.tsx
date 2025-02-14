@@ -5,12 +5,14 @@ import { Newsletter } from "@/components/newsletter";
 import Article from "@/components/home/articles/page";
 import InfoSection from "@/components/home/infos/info-section";
 import HowItWorks from "@/components/home/video/how-it-works";
+import FundraisingSteps from "@/components/home/infos/fundraising-steps";
 
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <FundraisingSteps />
       <Campaign />
       <Article />
       <Category />

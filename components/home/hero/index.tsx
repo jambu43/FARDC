@@ -4,10 +4,9 @@ import Sliders from "./sliders";
 
 function Hero() {
   return (
-    <div className={"relative min-h-[500px] md:min-h-[700px] bg-blue"}>
-      <div className="container">
+    <div className={"relative min-h-[500px] md:min-h-[900px] bg-blue"}>
+
         <Sliders />
-      </div>
     </div>
   );
 }

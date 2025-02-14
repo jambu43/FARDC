@@ -26,7 +26,7 @@ function ContactPage() {
                                 Pour informations générales
                             </h4>
                             <p>
-                                <a href="mailto:infos@finances.gouv.cd">infos@Pamoja.cd</a>
+                                <a href="mailto:infos@finances.gouv.cd">infos@100% FARDC.cd</a>
                             </p>
                             <p>
                                 <a href="tel:+243810000000">+243 (0) 810 000 000</a>

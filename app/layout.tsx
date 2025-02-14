@@ -30,9 +30,11 @@ const antiqueOliveRegular = localFont({
 
 
 export const metadata: Metadata = {
-  title: "Pamoja ",
+  title: "100% FARDC | Plateforme de Collecte de Fonds",
   description: "Plateforme de Collecte de Fonds  pour les Victimes des Guerres en RDC",
 };
+
+export const revalidate = 0;
 
 export default function RootLayout({
   children,

@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export default function InfoSection() {
   return (
-    <section className="bg-[#f3f9f3] py-12 md:py-16 px-4 min-h-[600px]">
+    <section className="bg-[#012d19] py-12 md:py-16 px-4 min-h-[600px]">
       <div className="container mt-16 ">
-        <h2 className="text-2xl md:text-2xl lg:text-2xl font-semibold mb-6 md:mb-8">
+        <h2 className="text-2xl md:text-2xl lg:text-2xl font-semibold mb-6 md:mb-8 text-white">
           La collecte de fonds sur 100% <b>FARDC</b> est conviviale, efficace et
           sécurisée.
         </h2>
 
-        <div className="space-y-6 text-gray-700">
+        <div className="space-y-6 text-white">
           <p className="text-base md:text-lg leading-relaxed">
             100% FARDC est une plateforme dédiée à la collecte de fonds pour
             soutenir nos militaires, leurs familles et les déplacés affectés par
@@ -21,12 +21,12 @@ export default function InfoSection() {
           </p>
 
           <p className="text-base md:text-lg">
-            Vous avez d&apos;autres <Link href="#" className="text-gray-900 underline hover:text-gray-600 transition-colors">
+            Vous avez d&apos;autres <Link href="#" className="text-white underline hover:text-gray-600 transition-colors">
               questions
             </Link>
             ? En savoir plus sur <Link
               href="#"
-              className="text-gray-900 underline hover:text-gray-600 transition-colors"
+              className="text-white underline hover:text-gray-600 transition-colors"
             >
               la façon dont 100% FARDC fonctionne
             </Link>

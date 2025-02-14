@@ -40,14 +40,14 @@ const channels: Channel[] = [
   {
     id: "environment",
     title: "Soutenir les Familles des FARDC",
-    selectedBy: "Sélectionné par Pamoja ",
+    selectedBy: "Sélectionné par 100% FARDC ",
     image: "/famille.jpeg",
     link: "#",
   },
   {
     id: "sport",
     title: "Soutenir les Déplacés de la FARDC",
-    selectedBy: "Sélectionné par Pamoja ",
+    selectedBy: "Sélectionné par 100% FARDC ",
     image: "/deplaces.jpeg",
     link: "#",
   },

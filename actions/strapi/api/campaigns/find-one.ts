@@ -6,7 +6,17 @@ import { getPublicUrl } from "@/actions/supabase/storage";
 
 export const getCampaign = async (id: string) => {
   const campaign = await findOne("campaigns", id, {
-    populate: "*",
+    populate: {
+      users_permissions_user: {
+        populate: "*",
+      },
+      donations: {
+        populate: "*",
+      },
+      donation_categories: {
+        populate: "*",
+      },
+    },
   });
   const formatData = {
     id: campaign?.documentId,
@@ -20,13 +30,14 @@ export const getCampaign = async (id: string) => {
     banner: getPublicUrl(campaign?.banner),
     featuredImage: getPublicUrl(campaign?.featuredImage),
     organization: campaign?.users_permissions_user
-      ? campaign?.users_permissions_user?.username
-      : "Pamoja ",
+      ? campaign?.users_permissions_user?.organization?.nom
+      : "100% FARDC ",
     daysLeft: dayLefts(campaign?.endDate),
     contributions: campaign?.donations?.length || 0,
     categories:
       campaign?.donation_categories?.map((category: any) => category.name) ||
       [],
+    organizationId: campaign?.users_permissions_user?.organization?.documentId,
   };
 
   return formatData;

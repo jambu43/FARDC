@@ -14,6 +14,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+
 
 import { Button } from "@/components/ui/button"
 import {
@@ -28,42 +30,14 @@ import {
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import Link from "next/link"
+import {cn}  from "@/lib/utils"
 
-const data: Campaign[] = [
-  {
-    id: "CAMP001",
-    title: "Aide aux sinistrés des inondations",
-    status: "active",
-    progress: 65,
-    goal: 50000,
-    raised: 32450,
-    daysLeft: 15,
-  },
-  {
-    id: "CAMP002",
-    title: "Équipement pour l'hôpital local",
-    status: "active",
-    progress: 78,
-    goal: 100000,
-    raised: 78900,
-    daysLeft: 30,
-  },
-  {
-    id: "CAMP003",
-    title: "Rénovation de l'école primaire",
-    status: "active",
-    progress: 60,
-    goal: 75000,
-    raised: 45600,
-    daysLeft: 45,
-  },
-  // Ajoutez d'autres campagnes ici...
-]
+
 
 export type Campaign = {
   id: string
   title: string
-  status: "active" | "completed" | "draft"
+  status: "active" | "completed"
   progress: number
   goal: number
   raised: number
@@ -79,19 +53,23 @@ export const columns: ColumnDef<Campaign>[] = [
   {
     accessorKey: "status",
     header: "Statut",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("status")}</div>,
+    cell: ({ row }) => <div className="capitalize">
+      <Badge className={cn(row.getValue("status") === "active" ? "bg-orange-500" : "bg-green-500")}>
+        {row.getValue("status")}
+      </Badge>
+    </div>,
   },
   {
     accessorKey: "progress",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button variant="ghost" className={'hover:bg-transparent'} onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
           Progression
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
-    cell: ({ row }) => <div className="text-right">{row.getValue("progress")}%</div>,
+    cell: ({ row }) => <div className="text-center">{row.getValue("progress")}%</div>,
   },
   {
     accessorKey: "raised",
@@ -100,7 +78,7 @@ export const columns: ColumnDef<Campaign>[] = [
       const amount = Number.parseFloat(row.getValue("raised"))
       const formatted = new Intl.NumberFormat("fr-FR", {
         style: "currency",
-        currency: "EUR",
+        currency: "USD",
       }).format(amount)
 
       return <div className="text-right font-medium">{formatted}</div>
@@ -131,20 +109,22 @@ export const columns: ColumnDef<Campaign>[] = [
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={`/dashboard/organisation/campagnes/${campaign.id}`}>
+              <Link href={`/dashboard/campagnes/${campaign.id}`}>
               Voir les détails
               </Link>
             </DropdownMenuItem>
 
-            <DropdownMenuItem>Modifier la campagne</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
     },
   },
 ]
+type Props ={
+  data: Campaign[]
+}
 
-export function CampaignsTable() {
+export function CampaignsTable({data}: Props) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
@@ -180,7 +160,7 @@ export function CampaignsTable() {
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button  className="ml-auto bg-primary">
               Colonnes <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -205,12 +185,12 @@ export function CampaignsTable() {
       </div>
       <div className="rounded-md border">
         <Table>
-          <TableHeader>
+          <TableHeader className={'bg-primary'}>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className={'text-white'}>
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                     </TableHead>
                   )

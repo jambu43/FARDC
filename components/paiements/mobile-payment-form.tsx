@@ -33,7 +33,7 @@ export function FormulairePaiementMobile({ onSuccess, chargement }: FormulairePa
                     required
                 />
             </div>
-            <Button type="submit" className="w-full" disabled={chargement}>
+            <Button type="submit" className="w-full bg-primary" disabled={chargement}>
                 {chargement ? "Paiement en cours..." : "Payer avec Mobile"}
             </Button>
         </form>

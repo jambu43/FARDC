@@ -14,41 +14,43 @@ const getCampaignInfo = (id: string) => ({
   status: "active",
 })
 
-export function CampaignInfo({ campaignId }: { campaignId: string }) {
-  const campaign = getCampaignInfo(campaignId)
-  const progress = (campaign.raised / campaign.goal) * 100
+export function CampaignInfo({ campaign}: { campaign: any }) {
+  const progress = (campaign.amountCollected / campaign.goal) * 100
+  const today = new Date();
+  const statut =  today > new Date(campaign.endDate) ? "completed" : "active";
+
 
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>{campaign.title}</CardTitle>
+        <CardTitle className={'text-primary'}>{campaign.title}</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div>
-          <h3 className="text-lg font-semibold">Description</h3>
+          <h3 className="text-lg font-semibold  text-primary">Description</h3>
           <p className="text-sm text-muted-foreground">{campaign.description}</p>
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-2">Progression</h3>
           <Progress value={progress} className="h-2" />
           <div className="flex justify-between text-sm text-muted-foreground mt-2">
-            <span>{campaign.raised.toLocaleString("fr-FR")} $ collectés</span>
-            <span>{campaign.goal.toLocaleString("fr-FR")} $ objectif</span>
+            <span>{campaign.amountCollected.toLocaleString("fr-FR")} $ collectés</span>
+            {/* <span>{campaign.goal.toLocaleString("fr-FR")} $ objectif</span> */}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h3 className="text-sm font-medium text-muted-foreground">Date de début</h3>
+            <h3 className="text-sm font-medium text-muted-foreground text-primary" >Date de début</h3>
             <p className="text-lg font-semibold">{new Date(campaign.startDate).toLocaleDateString("fr-FR")}</p>
           </div>
           <div>
-            <h3 className="text-sm font-medium text-muted-foreground">Date de fin</h3>
+            <h3 className="text-sm font-medium text-muted-foreground text-primary">Date de fin</h3>
             <p className="text-lg font-semibold">{new Date(campaign.endDate).toLocaleDateString("fr-FR")}</p>
           </div>
         </div>
         <div>
-          <h3 className="text-sm font-medium text-muted-foreground">Statut</h3>
-          <p className="text-lg font-semibold capitalize">{campaign.status}</p>
+          <h3 className="text-sm font-medium text-muted-foreground text-primary">Statut</h3>
+          <p className="text-lg font-semibold capitalize">{statut}</p>
         </div>
       </CardContent>
     </Card>
