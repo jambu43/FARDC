@@ -1,5 +1,5 @@
 {
-  "name": "umoja-congo",
+  "name": "fadrc-crownfunding",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,8 +25,6 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.2",
     "@radix-ui/react-tooltip": "^1.1.8",
-    "@splidejs/react-splide": "^0.7.12",
-    "@splidejs/splide": "^4.1.4",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.48.1",
     "@tanstack/react-table": "^8.20.6",
