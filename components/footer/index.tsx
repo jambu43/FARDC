@@ -61,7 +61,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-white text-zinc-950">
+    <footer className="w-full bg-white text-zinc-950 border-t border-primary">
       {/* Main footer content */}
       <div className="container px-4 py-8">
         {/* Top section with logo and social */}

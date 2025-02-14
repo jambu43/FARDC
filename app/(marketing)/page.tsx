@@ -6,6 +6,7 @@ import Article from "@/components/home/articles/page";
 import InfoSection from "@/components/home/infos/info-section";
 import HowItWorks from "@/components/home/video/how-it-works";
 import FundraisingSteps from "@/components/home/infos/fundraising-steps";
+import FundraisingStats from "@/components/home/infos/fundraising-stats";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Campaign />
       <Article />
       <Category />
+      <FundraisingStats />
       <InfoSection />
       <HowItWorks />
       {/* <ProjectByCategory /> */}

@@ -58,7 +58,7 @@ export default function FundraisingSteps() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Recevoir des fonds en toute sécurité</h3>
               <p className="text-gray-600">
-              L'argent de collete est directement versé sur le compte du concené ...
+              L&apos;argent de collete est directement versé sur le compte du concené ...
               </p>
             </div>
           </div>
