@@ -18,30 +18,22 @@ export function Footer() {
     {
       title: "Trouvez un projet",
       links: [
-        { label: "Comment mener une campagne réussie", href: "#" },
-        { label: "Nos caractéristiques", href: "#" },
-        { label: "Crowdfunding", href: "#" },
-        { label: "Campagne", href: "#" },
-        { label: "Inscription", href: "#" },
-        { label: "Blog", href: "#" },
-        { label: "FAQ", href: "#" },
+        { label: "Campagne", href: "/campagnes" },
+        { label: "Blog", href: "/actualites" },
+        { label: "FAQ", href: "/faq" },
       ],
     },
     {
       title: "Partenariats",
       links: [
-        { label: "Devenir partenaire", href: "#" },
-        { label: "Opérations des partenaires", href: "#" },
-        { label: "Autorités locales", href: "#" },
+        { label: "Devenir partenaire", href: "/contact" },
+        { label: "Les partenaires", href: "/partenaires" },
       ],
     },
     {
       title: "Apropos",
       links: [
-        { label: "Nos services", href: "#" },
-        { label: "Nos valeurs", href: "#" },
-        { label: "Nos projets records", href: "#" },
-        { label: "Notre équipe", href: "#" },
+        { label: "Apropos", href: "#" },
         { label: "Press", href: "#" },
         { label: "Newsletters", href: "#" },
       ],
