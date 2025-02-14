@@ -5,12 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "random-image-pepebigotes.vercel.app",
-        port: "",
-        pathname: "/**",
-      },
-      {
         protocol: "http",
         hostname:
           "supabasekong-jwos8wcggkwwo44gk4gcgogg.145.223.88.104.sslip.io",

@@ -46,7 +46,6 @@ export default function RootLayout({
       <body
         className={` ${antiqueOlive.variable} ${antiqueOliveRegular.variable} antialiased`}
       >
-
         <main className="min-h-screen">
           {children}
 

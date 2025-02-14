@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import Logo from "../shared/logo"
 import ProfileButton from "../shared/profile"
 import Mobile from "./mobile"
-import {auth} from "@/auth"
+import { auth } from "@/auth"
 
 const MarketingMenu = [
     {
@@ -44,9 +44,9 @@ const DashboardMenu = [
 ]
 
 
-export default async  function Header() {
+export default async function Header() {
 
-const session = await auth()
+    const session = await auth()
     const Menu = session ? DashboardMenu : MarketingMenu
 
     return (
