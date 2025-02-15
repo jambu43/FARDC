@@ -58,6 +58,23 @@ const FormContact = () => {
         <div className='text-sm'>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(handleSubmit)}>
+                <div className={'mb-8'}>
+                        <FormField
+                            control={form.control}
+                            name={'email'}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Adresse electronique</FormLabel>
+                                    <FormControl>
+                                        <Input type={'email'} {...field} className={'py-8 px-4 h-12 rounded-xl'} placeholder="Adresse email"/>
+                                    </FormControl>
+                                    <FormMessage>
+                                        {form.formState.errors.email && form.formState.errors.email.message}
+                                    </FormMessage>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
                     <div className={'grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'}>
                         <FormField
                             control={form.control}
@@ -66,7 +83,7 @@ const FormContact = () => {
                                 <FormItem>
                                     <FormLabel>Nom de famille</FormLabel>
                                     <FormControl>
-                                        <Input type={'text'} {...field} className={'py-4 px-4 h-12 rounded-2xl'} />
+                                        <Input type={'text'} {...field} className={'py-8 px-4 h-12 rounded-xl'} placeholder="Votre nom de famille" />
                                     </FormControl>
                                     <FormMessage>
                                         {form.formState.errors.nom && form.formState.errors.nom.message}
@@ -81,7 +98,7 @@ const FormContact = () => {
                                 <FormItem>
                                     <FormLabel>Prénom</FormLabel>
                                     <FormControl>
-                                        <Input type={'text'} {...field} className={'py-4 px-4 h-12 rounded-2xl'} />
+                                        <Input type={'text'} {...field} className={'py-8 px-4 h-12 rounded-xl'} placeholder="Votre prénom"/>
                                     </FormControl>
                                     <FormMessage>
                                         {form.formState.errors.prenom && form.formState.errors.prenom.message}
@@ -92,23 +109,7 @@ const FormContact = () => {
 
 
                     </div>
-                    <div className={'mb-8'}>
-                        <FormField
-                            control={form.control}
-                            name={'email'}
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Adresse electronique</FormLabel>
-                                    <FormControl>
-                                        <Input type={'email'} {...field} className={'py-4 px-4 h-12 rounded-2xl'} />
-                                    </FormControl>
-                                    <FormMessage>
-                                        {form.formState.errors.email && form.formState.errors.email.message}
-                                    </FormMessage>
-                                </FormItem>
-                            )}
-                        />
-                    </div>
+                   
                     <div>
                         <FormField
                             control={form.control}
@@ -118,7 +119,7 @@ const FormContact = () => {
                                     <FormLabel>Message</FormLabel>
                                     <FormControl>
                                         <textarea {...field} rows={5} cols={30}
-                                            className={'py-4 px-4 h-32 rounded-2xl w-full block border-2 border-neutral-100'}></textarea>
+                                            className={'py-4 px-4 h-32 rounded-2xl w-full block border-2 border-neutral-100'} placeholder="Votre message..."></textarea>
                                     </FormControl>
                                     <FormMessage>
                                         {form.formState.errors.message && form.formState.errors.message.message}
@@ -135,7 +136,7 @@ const FormContact = () => {
 
                     </div>
                     <div className={'mt-8'}>
-                        <Button type={'submit'} size={'lg'} className={'py-4 px-8 bg-primary rounded-2xl'}>
+                        <Button type={'submit'} size={'lg'} className={'py-8 px-8 bg-primary rounded-xl'}>
                             {loading ? 'Envoi en cours ...' : 'Envoyer votre message'}
                         </Button>
                     </div>

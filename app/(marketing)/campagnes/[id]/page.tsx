@@ -56,7 +56,7 @@ async function CampagneDetails({ params }: Props) {
         <div className="grid gap-8 md:grid-cols-[2fr,1fr]">
           {/* Left Column - Photos */}
           <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-xl border-4 border-yellow-400">
+            <div className="relative overflow-hidden rounded-xl border-4 border-primary">
               <div className="relative aspect-[16/9] md:aspect-[4/3] h-full">
                 <Image
                   src={campaign?.featuredImage || "/guerre.jpg"}
@@ -103,7 +103,7 @@ async function CampagneDetails({ params }: Props) {
                 <div className="space-y-6 mt-6">
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <div className="flex items-baseline gap-2">
+                      <div className="flex items-baseline gap-2 mb-5">
                         <span className="text-2xl font-bold">
                           {campaign.amountCollected}$
                         </span>
@@ -193,15 +193,15 @@ async function CampagneDetails({ params }: Props) {
                 </div>
 
                 {/* Social Actions */}
-                <div className="flex justify-end gap-4 mt-6">
+                <div className="flex  gap-4 mt-6">
                   <Button variant="outline" size="sm" className="gap-2">
                     <Share2 className="w-4 h-4" />
                     PARTAGER
                   </Button>
-                  <Button variant="outline" size="sm" className="gap-2">
+                  {/* <Button variant="outline" size="sm" className="gap-2">
                     <Heart className="w-4 h-4" />
                     SUIVRE
-                  </Button>
+                  </Button> */}
                   <Button variant="outline" size="sm" className="gap-2">
                     <Heart className="w-4 h-4" />
                     Commenter
