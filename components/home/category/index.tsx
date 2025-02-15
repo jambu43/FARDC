@@ -32,7 +32,7 @@ const channels: Channel[] = [
   {
     id: "engie",
     title: "Soutenir les FARDC",
-    selectedBy: "Soutien",
+    selectedBy: "Sélectionné par 100% FARDC",
     image:
       "/soutenir.jpeg",
     link: "#",
@@ -46,7 +46,7 @@ const channels: Channel[] = [
   },
   {
     id: "sport",
-    title: "Soutenir les Déplacés de la FARDC",
+    title: "Soutenir les Déplacés",
     selectedBy: "Sélectionné par 100% FARDC ",
     image: "/deplaces.jpeg",
     link: "#",
@@ -60,8 +60,8 @@ export function Category() {
     <section className="max-w-7xl mx-auto px-4 py-12 space-y-12">
       {/* Categories Section */}
       <div>
-        <h2 className="text-2xl font-bold mb-6">Parcourir par catégorie</h2>
-        <div className="flex flex-wrap gap-2">
+        <h2 className="text-2xl font-bold mb-6">Parcourir les catégories</h2>
+        {/* <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <Link
               href={`/category/${category.id}`}
@@ -78,7 +78,7 @@ export function Category() {
               <span className="text-sm">{category.name}</span>
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
 
       <div>

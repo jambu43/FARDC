@@ -38,12 +38,6 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
                 <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden  cursor-pointer shadow-lg">
                     <div className="relative aspect-[16/9] h-1/2">
                         <Image src={campaign.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                        <button
-                            className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
-                            aria-label="Add to favorites"
-                        >
-                            <Heart className="w-4 h-4" />
-                        </button>
                     </div>
 
                     <div className="p-4 ">
