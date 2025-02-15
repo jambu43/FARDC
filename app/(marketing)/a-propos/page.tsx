@@ -1,11 +1,17 @@
+import Hero from '@/components/about/hero'
+import Manifesto from '@/components/about/manifesto'
+import MissionContent from '@/components/about/mission'
+import StatsSection from '@/components/about/stats-section'
 import React from 'react'
 
 function AproposPage() {
     return (
-        <div className='container section'>
-            <h1 className='text-2xl md:text-3xl font-bold text-primary mb-8'>
-                A propos
-            </h1>
+        <div className=''>
+            <Hero />
+            <MissionContent />
+            <StatsSection />
+            <Manifesto />
+            
         </div>
     )
 }

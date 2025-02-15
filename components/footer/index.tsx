@@ -18,7 +18,7 @@ export function Footer() {
     {
       title: "Trouvez un projet",
       links: [
-        { label: "Campagne", href: "/campagnes" },
+        { label: "Voir toutes les collectes", href: "/campagnes" },
         { label: "Blog", href: "/actualites" },
         { label: "FAQ", href: "/faq" },
       ],
@@ -33,9 +33,10 @@ export function Footer() {
     {
       title: "Apropos",
       links: [
-        { label: "Apropos", href: "#" },
-        { label: "Press", href: "#" },
+        { label: "Apropos", href: "a-propos" },
+        { label: "Presse", href: "#" },
         { label: "Newsletters", href: "#" },
+        { label: "Nous contacter", href: "#" },
       ],
     },
     {
@@ -103,7 +104,7 @@ export function Footer() {
                 <ul className="space-y-2 pb-4 lg:pb-0">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors block py-1 text-sm">
+                      <Link href={link.href} className="text-zinc-400 hover:text-primary transition-colors block py-1 text-sm">
                         {link.label}
                       </Link>
                     </li>
