@@ -64,7 +64,7 @@ const FormContact = () => {
                             name={'email'}
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Adresse electronique</FormLabel>
+                                    <FormLabel>Adresse email</FormLabel>
                                     <FormControl>
                                         <Input type={'email'} {...field} className={'py-8 px-4 h-12 rounded-xl'} placeholder="Adresse email"/>
                                     </FormControl>

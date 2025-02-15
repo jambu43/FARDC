@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="container mx-auto px-4 py-12 mb-28">
       {/* Contact Info Cards */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl">
+        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl cursor-pointer">
           <CardContent className="px-6 py-14">
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary">
               <Mail className="h-9 w-9 text-white" />
@@ -26,7 +26,7 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl">
+        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl cursor-pointer">
           <CardContent className="p-6 py-14">
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary">
               <Phone className="h-9 w-9 text-white" />
@@ -38,7 +38,7 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl">
+        <Card className="overflow-hidden shadow-lg hover:bg-primary hover:text-white rounded-2xl cursor-pointer">
           <CardContent className="p-6 py-14">
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary">
               <MapPin className="h-9 w-9 text-white" />
