@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className="scroll-smooth light">
       <body
         className={` ${antiqueOlive.variable} ${antiqueOliveRegular.variable} antialiased`}
       >
