@@ -90,8 +90,8 @@ function DonationsDetails({ campagne }: Props) {
                                     </label>
 
                                     {/* Options de montants prédéfinis */}
-                                    <div className="flex flex-col md:flex-row md:justify-between items-center gap-4 mb-4">
-                                        {[2, 10, 20, 50, 100, 200].map((value) => (
+                                    <div className="flex flex-row flex-wrap md:flex-row md:justify-between items-center gap-4 mb-4">
+                                        {[10, 20, 30, 50, 75, 100, 150, 200].map((value) => (
                                             <div
                                                 key={value}
                                                 onClick={() => setAmount(value)}
