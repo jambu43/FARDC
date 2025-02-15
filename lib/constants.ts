@@ -1,28 +1,28 @@
 import { ChartNoAxesCombinedIcon, Users2, Briefcase } from "lucide-react";
 export const MOBILE_MENU = [
   {
-    label: "Créer une campagne",
-    href: "/campaigns/create",
+    label: "Accueil",
+    href: "/",
   },
   {
-    label: "Découvrir nos campaigns",
-    href: "/campaigns",
+    label: "Découvrir nos campagnes",
+    href: "/campagnes",
   },
   {
-    label: "Connexion",
-    href: "/login",
+    label: "Actualités",
+    href: "/actualites",
   },
   {
-    label: "Inscription",
-    href: "/register",
-  },
-  {
-    label: "FAQ",
-    href: "/faq",
+    label: "A propos",
+    href: "/a-propos",
   },
   {
     label: "Contact",
     href: "/contact",
+  },
+  {
+    label: "FAQ",
+    href: "/faq",
   },
 ];
 
