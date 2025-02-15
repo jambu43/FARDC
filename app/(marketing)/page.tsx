@@ -22,7 +22,7 @@ export default function Home() {
       <HowItWorks />
       {/* <ProjectByCategory /> */}
       {/* <StatsSection /> */}
-      <Newsletter />
+      {/* <Newsletter /> */}
     </>
   );
 }
