@@ -5,6 +5,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import useEmblaCarousel from "embla-carousel-react"
+import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 
 
 const slides = [
@@ -26,17 +28,21 @@ const slides = [
 ]
 
 export default function Home() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
-  useEffect(() => {
-    if (emblaApi) {
-      // You can call emblaApi.scrollTo() here if you need to
-    }
-  }, [emblaApi])
 
   return (
     <main className="min-h-screen">
-      <Carousel ref={emblaRef} className="w-full h-[900px]">
+      <Carousel className="w-full h-[900px]" opts={{
+        loop: true,
+        dragFree: true,
+      }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+
+          Fade(),
+        ]}>
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
