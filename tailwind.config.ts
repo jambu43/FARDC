@@ -44,4 +44,6 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  // @ts-ignore
+  darkMode: "false",
 } satisfies Config;

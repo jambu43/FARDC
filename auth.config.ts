@@ -1,4 +1,5 @@
 import type { NextAuthConfig, User } from "next-auth";
+import { NextResponse } from "next/server";
 
 export const authConfig = {
   pages: {
@@ -9,10 +10,11 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
       if (isOnDashboard) {
-        if (isLoggedIn) return true;
+        if (isLoggedIn)
+          return NextResponse.redirect(new URL("/dashboard", nextUrl));
         return false;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL("/dashboard", nextUrl));
+        return NextResponse.redirect(new URL("/", nextUrl));
       }
       return true;
     },
