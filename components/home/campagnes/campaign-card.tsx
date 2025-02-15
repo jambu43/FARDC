@@ -14,7 +14,7 @@ interface CampaignCardProps {
 export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
     if (isLoading) {
         return (
-            <div className="group relative bg-white rounded-lg overflow-hidden border animate-pulse">
+            <div className="group relative bg-white rounded-lg overflow-hidden animate-pulse  shadow-lg">
                 <div className="relative aspect-[4/3] bg-gray-200" />
                 <div className="p-4">
                     <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
@@ -35,7 +35,7 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
     return (
         <div className="cursor-pointe">
             <Link href={`/campagnes/${campaign.id}`} passHref legacyBehavior className="cursor-pointer">
-                <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden border cursor-pointer">
+                <div className="group relative bg-white flex flex-col rounded-lg overflow-hidden  cursor-pointer shadow-lg">
                     <div className="relative aspect-[16/9] h-1/2">
                         <Image src={campaign.featuredImage || "/placeholder.svg"} width={500} height={500} alt={campaign.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                         <button
@@ -51,9 +51,10 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
                         <div className="flex justify-between items-center mb-4">
                             <div className="text-xs">
                                 <span className="font-bold text-xs">{campaign.amountCollected}</span>
-                                <span className="text-gray-500"> collectés sur <b className="text-primary">{campaign.goal}$</b></span>
+                                <span className="text-gray-500"> collectés sur </span>
                             </div>
-                            <span className="text-gray-500 font-medium text-xs">Jour-{campaign.daysLeft}</span>
+                            <span className="text-gray-500 font-medium text-xs"><b className="text-primary">{campaign.goal}$</b></span>
+                            {/* <span className="text-gray-500 font-medium text-xs">Jour-{campaign.daysLeft}</span> */}
                         </div>
 
                         <Progress value={campaign.progress} className="h-1 mb-2" />
@@ -66,7 +67,7 @@ export function CampaignCard({ campaign, isLoading }: CampaignCardProps) {
                                 <Link href={`/campagnes/donations/${campaign.id}`}>
                                     <Button size="sm" className="bg-secondary text-white text-sm flex items-center gap-2">
                                         <Heart className="w-4 h-4" />
-                                        <span>Contribuer</span>
+                                        <span>Faire un don</span>
                                     </Button>
                                 </Link>
                             </div>
