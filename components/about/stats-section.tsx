@@ -21,7 +21,7 @@ export default function StatsSection() {
 
           {/* Online Collections */}
           <div className="flex flex-col items-center justify-center sm:col-span-2 lg:col-span-1">
-            <span className="mb-2 text-4xl font-bold text-white sm:text-5xl md:text-6xl">5</span>
+            <span className="mb-2 text-4xl font-bold text-white sm:text-5xl md:text-6xl">2</span>
             <span className="text-sm font-medium uppercase tracking-wider text-white sm:text-base">
               Collectes en ligne
             </span>

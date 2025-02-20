@@ -1,10 +1,12 @@
+import Image from "next/image";
+
 export default function FundraisingSteps() {
   return (
     <div className="container px-4 py-12 md:px-6 lg:py-16">
       <div className="text-center mb-12">
-        <h1 className="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">
-        La collecte de fonds sur 100% FARDC est facile, 
-          <br className="hidden sm:inline" /> puissante et fiable
+        <h1 className="text-md font-bold tracking-tight md:text-3xl lg:text-4xl">
+        La campagne 100% FARDC Tokolonga 
+          <br className="hidden sm:inline" /> est un appel à la solidarité nationale et internationale. 
         </h1>
       </div>
 
@@ -12,15 +14,18 @@ export default function FundraisingSteps() {
         {/* Video Container */}
         <div className="relative  w-full ">
           <div className="rounded-2xl bg-emerald-600 p-4 shadow-lg aspect-[4/3]">
-            <video className="w-full h-full rounded-lg object-cover" controls controlsList="nodownload" playsInline>
-              <source src="/genocost-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <Image src={'/fardc.png'} alt="Image cover" fill/> 
           </div>
         </div>
 
         {/* Steps */}
         <div className="space-y-8">
+          <div className="flex gap-4">
+            <div>
+              <h3 className="text-md md:text-lg lg:text-lg font-semibold mb-2">Elle vise à :
+              </h3>
+            </div>
+          </div>
           <div className="flex gap-4">
             <div className="flex-none">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
@@ -28,10 +33,8 @@ export default function FundraisingSteps() {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Cette platefoeme est Utilisée pour collecter de fonds </h3>
-              <p className="text-gray-600">
-              Vous serez guidé pour les détails de la collecte de fonds et être notiffier des mises à jour à tout moment.
-              </p>
+              <h3 className="text-md md:text-lg lg:text-lg font-semibold mb-2">Mobiliser les Congolais autour des FARDC pour créer un sentiment d’appartenance et de soutien.
+              </h3>
             </div>
           </div>
 
@@ -42,10 +45,7 @@ export default function FundraisingSteps() {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Atteindre les donateurs en partageant</h3>
-              <p className="text-gray-600">
-              Partagez le lien de vos collectes de fonds ...
-              </p>
+              <h3 className="text-md md:text-lg lg:text-lg font-semibold mb-2">Lever des fonds pour assister les familles de nos soldats qui se battent au front.</h3>
             </div>
           </div>
 
@@ -56,10 +56,18 @@ export default function FundraisingSteps() {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Recevoir des fonds en toute sécurité</h3>
-              <p className="text-gray-600">
-              L&apos;argent de collete est directement versé sur le compte du concené ...
-              </p>
+              <h3 className="text-md md:text-lg lg:text-lg font-semibold mb-2">Soutenir les déplacés des guerres à l'Est de la RDC, qui ont perdu leurs maisons et leurs moyens de subsistance.</h3>
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <div className="flex-none">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100">
+                <span className="text-sm font-medium">4</span>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-md md:text-lg lg:text-lg font-semibold mb-2">Promouvoir des actions concrètes et valoriser les succès des FARDC pour maintenir le moral des troupes et de la population.</h3>
             </div>
           </div>
         </div>

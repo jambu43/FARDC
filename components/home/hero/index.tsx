@@ -1,13 +1,13 @@
-"use client";
+
+import Link from "next/link";
 // import { Container, Section } from "lucide-react"
 import Sliders from "./sliders";
+import Background from "./video";
+import { Button } from "@/components/ui/button";
 
 function Hero() {
   return (
-    <div className={"relative min-h-[500px] md:min-h-[900px] bg-blue"}>
-
-        <Sliders />
-    </div>
+    <Background/>
   );
 }
 

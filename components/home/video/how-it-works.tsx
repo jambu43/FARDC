@@ -30,9 +30,9 @@ console.log(content[0].image)
       <section className="max-w-7xl mx-auto px-4 py-8 md:py-36">
         <div className="flex justify-between items-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-2xl font-semibold">Comment ça fonctionne ?</h2>
-          <Link href="" className="inline-flex items-center px-4 py-2 rounded border border-gray-300 hover:border-gray-400 transition-colors text-sm text-primary">
+          {/* <Link href="" className="inline-flex items-center px-4 py-2 rounded border border-gray-300 hover:border-gray-400 transition-colors text-sm text-primary">
             En savoir plus
-          </Link>
+          </Link> */}
         </div>
 
         <div className="relative rounded-2xl overflow-hidden bg-[#e6f3f7] h-[700px] cursor-pointer">
@@ -67,7 +67,7 @@ console.log(content[0].image)
           <div className="relative pt-[56.25%]">
             <iframe
               className="absolute inset-0 h-full w-full"
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
+              src="https://res.cloudinary.com/dxq5qufow/video/upload/v1740062641/hjzjspftqa3beegn6wzi.mp4"
               title="Comment fonctionne "
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -9,7 +9,7 @@ export default function Article() {
         <div className="flex justify-between items-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold md:mb-12">Actualités</h2>
           <Link href="/actualites" className="inline-flex items-center px-4 py-2 hover:text-black transition-colors text-sm text-primary">
-            En savoir plus
+            Voir plus
           </Link>
         </div>
 

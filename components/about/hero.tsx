@@ -16,7 +16,7 @@ export default function Hero() {
               Donner à chaque personne le pouvoir d'agir
             </h1>
             <p className="text-sm text-gray-700 sm:text-xl md:text-sm">
-              pour un monde plus divers, plus durable, plus ouvert
+              100% FARDC TOKOLONGA
             </p>
           </div>
 
