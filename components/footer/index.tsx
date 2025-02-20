@@ -35,15 +35,14 @@ export function Footer() {
       links: [
         { label: "Apropos", href: "a-propos" },
         { label: "Presse", href: "#" },
-        { label: "Newsletters", href: "#" },
-        { label: "Nous contacter", href: "#" },
+        { label: "Nous contacter", href: "/contact" },
       ],
     },
     {
       title: "Nos engagements",
       links: [
         { label: "Santé et handicap", href: "#" },
-        { label: "Indépendants", href: "#" },
+        { label: "Éducation", href: "#" },
         { label: "Guerre", href: "#" },
       ],
     },

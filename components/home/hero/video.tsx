@@ -41,14 +41,16 @@ function Background() {
               type="video/mp4"
             />
           </video>
-          <button onClick={toggleMute} className="static">
-            <Image
-              src={isMuted ? "/sound-off.webp" : "/sound-on.webp"}
-              alt="Mute Toggle"
-              width={30}
-              height={30}
-            />
-          </button>
+          <div className="absolute bottom-40  right-8 p-2">
+            <button onClick={toggleMute} className="static">
+              <Image
+                src={isMuted ? "/sound-off.webp" : "/sound-on.webp"}
+                alt="Mute Toggle"
+                width={50}
+                height={50}
+              />
+            </button>
+          </div>
         </div>
     </div>
   );
