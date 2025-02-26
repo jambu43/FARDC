@@ -89,21 +89,13 @@ export default function CampagnesSection({ campaigns }: Props) {
 
     return (
         <section className="section border-t border-gray-200">
-            <div className="container flex justify-between items-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold">
+            <div className="container flex justify-between items-center mb-24">
+                <h2 className="text-2xl md:text-3xl font-bold text-white">
                     Nos campagnes
                 </h2>
-                <div className="flex gap-2">
-                    <Button variant="outline" size="icon" className="rounded-full" onClick={scrollPrev}>
-                        <ChevronLeft className="h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="rounded-full" onClick={scrollNext}>
-                        <ChevronRight className="h-4 w-4" />
-                    </Button>
-                </div>
             </div>
 
-            <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8 hidden md:block">
+            {/* <Tabs value={activeCategory} onValueChange={setActiveCategory} className="mb-8 hidden md:block">
                 <TabsList className="flex overflow-x-auto scrollbar-none snap-x snap-start">
                     {categories.map((category) => (
                         <TabsTrigger
@@ -115,7 +107,7 @@ export default function CampagnesSection({ campaigns }: Props) {
                         </TabsTrigger>
                     ))}
                 </TabsList>
-            </Tabs>
+            </Tabs> */}
 
             <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
@@ -131,14 +123,14 @@ export default function CampagnesSection({ campaigns }: Props) {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-8">
+            {/* <div className="flex justify-center mt-8">
                 <Link href={"/campagnes"}>
                     <Button className="bg-primary hover:bg-primary/80 text-white">
                         Voir toutes les campagnes
                     </Button>
                 </Link>
 
-            </div>
+            </div> */}
         </section>
     )
 }

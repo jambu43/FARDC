@@ -15,8 +15,8 @@ export default function Hero() {
             <h1 className="mb-6 text-3xl font-bold text-primary sm:text-4xl md:text-5xl lg:text-6xl leading-10">
               Donner à chaque personne le pouvoir d'agir
             </h1>
-            <p className="text-sm text-gray-700 sm:text-xl md:text-sm">
-              100% FARDC TOKOLONGA
+            <p className="text-md text-gray-700 sm:text-xl md:text-sm">
+              1$ pour 1 million 
             </p>
           </div>
 

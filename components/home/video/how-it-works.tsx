@@ -37,8 +37,8 @@ console.log(content[0].image)
 
         <div className="relative rounded-2xl overflow-hidden bg-[#e6f3f7] h-[700px] cursor-pointer">
           <Image
-            src="/soutenir.jpeg"
-            alt="Illustration"
+            src="/videos-cover.jpg"
+            alt="cover de la vidéo"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             fill
             onClick={() => setIsVideoOpen(true)}

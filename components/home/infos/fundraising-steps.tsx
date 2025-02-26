@@ -14,7 +14,7 @@ export default function FundraisingSteps() {
         {/* Video Container */}
         <div className="relative  w-full ">
           <div className="rounded-2xl bg-emerald-600 p-4 shadow-lg aspect-[4/3]">
-            <Image src={'/fardc.png'} alt="Image cover" fill/> 
+            <Image src={'/coverfull.jpeg'} alt="Image cover" fill/> 
           </div>
         </div>
 

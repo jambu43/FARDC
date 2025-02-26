@@ -19,6 +19,10 @@ const MarketingMenu = [
     href: "/actualites",
   },
   {
+    label: "A propos",
+    href: "/a-propos",
+  },
+  {
     label: "Contact",
     href: "/contact",
   },
