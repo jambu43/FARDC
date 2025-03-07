@@ -28,7 +28,7 @@ export default function MissionContent() {
         <div className="relative mt-8 w-full">
           <div className="relative aspect-[16/9] w-full overflow-hidden">
             <Image
-              src="/fardc.png"
+              src="/coverfull.jpeg"
               alt="Créateur parlant dans un microphone"
               fill
               className="object-cover"
@@ -107,14 +107,6 @@ export default function MissionContent() {
         </div>
       </div>
 
-      {/* Help Button */}
-      <Button
-        variant="default"
-        className="fixed bottom-4 right-4 flex items-center gap-2 rounded-full bg-black px-6 py-2 text-white hover:bg-black/90"
-      >
-        <HelpCircle className="h-5 w-5" />
-        <span>Aide</span>
-      </Button>
     </div>
   );
 }
