@@ -15,24 +15,6 @@ type Props = {
   }>;
 };
 
-interface Donor {
-  name: string;
-  amount: number;
-  type: "recent" | "highest" | "first";
-  timestamp: string;
-}
-
-const donors: Donor[] = [
-  { name: "Kitty Mussa", amount: 5, type: "recent", timestamp: "Don récent" },
-  {
-    name: "David Hirst",
-    amount: 5000,
-    type: "highest",
-    timestamp: "Don le plus élevé",
-  },
-  { name: "David Hirst", amount: 20, type: "first", timestamp: "Premier don" },
-];
-
 async function CampagneDetails({ params }: Props) {
   const { id } = await params;
 
@@ -166,31 +148,6 @@ async function CampagneDetails({ params }: Props) {
                   </span>
                 </div>
 
-                <div className="space-y-4">
-                  {donors.map((donor, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Avatar className="h-8 w-8">
-                          <Image
-                            src="/guerre.jpg"
-                            alt={donor.name}
-                            width={150}
-                            height={150}
-                          />
-                        </Avatar>
-                        <div>
-                          <p className="font-medium">{donor.name}</p>
-                          <p className="text-sm text-gray-600">
-                            {donor.amount} $ · {donor.timestamp}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
 
                 {/* Social Actions */}
                 <div className="flex  gap-4 mt-6">
