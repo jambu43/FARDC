@@ -27,8 +27,8 @@ export const getCampaign = async (id: string) => {
     goal: campaign?.goal || 10000,
     amountCollected: campaign?.amountCollected || 0,
     progress: percentage(campaign?.amountCollected, campaign?.goal) || 0,
-    banner: getPublicUrl(campaign?.banner),
-    featuredImage: getPublicUrl(campaign?.featuredImage),
+    banner: campaign?.banner,
+    featuredImage: campaign?.featuredImage,
     organization: campaign?.users_permissions_user
       ? campaign?.users_permissions_user?.organization?.nom
       : "100% FARDC ",
