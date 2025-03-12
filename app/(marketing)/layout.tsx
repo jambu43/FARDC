@@ -20,11 +20,10 @@ function MarketingLayout({ children }: MarketingLayoutProps) {
         variant="default"
         className="fixed bottom-4 right-4 flex items-center gap-2 rounded-full bg-black px-6 py-2 text-white hover:bg-black/90"
       >
-       <Link href={'/'}  className="flex items-center gap-2 rounded-full ">
-       
-       <HelpCircle className="h-5 w-5" />
-       <span>Faire un bon</span>
-       </Link>
+        <Link href={"/"} className="flex items-center gap-2 rounded-full ">
+          <HelpCircle className="h-5 w-5" />
+          <span>Faire un bon</span>
+        </Link>
       </Button>
     </>
   );

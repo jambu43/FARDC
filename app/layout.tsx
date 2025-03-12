@@ -6,7 +6,7 @@ const antiqueOlive = localFont({
   src: [
 
     {
-      path: "../fonts/AntiqueOliveBold.ttf",
+      path: "../fonts/impact.woff",
       weight: "700",
       style: "normal",
     },
